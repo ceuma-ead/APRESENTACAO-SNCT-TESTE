@@ -209,7 +209,7 @@ const api = [
                 // "icones": "rgb(0, 110, 201)"
                 "imagemFundo": {
                     "ativar": true,
-                    "Capa": "url(../assets/fundo.png)",
+                    "Capa": "url(../assets/fundo.gif)",
                     "subCapa":"url(../assets/capaOverlay.png)",
                     "posicaoY": "bottom 1.8%",
                     "posicaoX": "left 0.5%",
