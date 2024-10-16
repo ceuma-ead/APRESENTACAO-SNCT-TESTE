@@ -1,0 +1,115 @@
+@import url(../css/texto.css);
+/* @import url(../css/tooltip.css); */
+@import url(../css/menu_footer.css);
+@import url(../css/menu_sidebar.css);
+@import url(../css/annotation.css);
+@import url(../css/capa.css);
+@import url(../css/ouvinte.css);
+@import url(../css/spinner.css);
+@import url(../css/tools.css);
+@import url(../css/dicionario.css);
+@import url(../css/toolbar.css);
+@import url(../css/resumo.css);
+@import url(../css/siderbar.css);
+@import url(../css/carrosel.css);
+@import url(../css/ligthbox.css);
+@import url(../css/siderbar.css);
+@import url(../css/carrosel.css);
+@import url(../css/video.css);
+@import url(../css/audio.css);
+@import url(../css/atividade.css);
+@import url(../css/vlibras.css);
+@import url(../css/variaveis.css);
+
+
+/* ------ Animações ------ */
+@import url(../plugins/vizionnAnimation/attention.css);
+@import url(../plugins/vizionnAnimation/bounce.css);
+@import url(../plugins/vizionnAnimation/fade.css);
+@import url(../plugins/vizionnAnimation/flip.css);
+@import url(../plugins/vizionnAnimation/rotate.css);
+@import url(../plugins/vizionnAnimation/slide.css);
+@import url(../plugins/vizionnAnimation/zoom.css);
+/* ------ Animações ------ */
+
+
+
+:root {
+    --bg-tooltip: rgb(255, 255, 255);
+    --cor-tooltip: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: var(--familia-da-font-paragrafo);
+
+}
+
+/* 
+html{
+    zoom: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+body {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: relative;
+    /* background-color: rgb(24, 86, 141); */
+    /* overflow: hidden; */
+
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-window-dragging: none;
+}
+
+
+.tippy-box[data-theme~='light'] {
+    background-color: var(--bg-tooltip);
+    color: var(--cor-tooltip);
+    font-size: 0.9rem;
+}
+
+.tippy-box[data-theme~='laranjado'] {
+    background-color: #FF8A00;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.tippy-arrow {
+   color: #FF8A00;
+}
+
+
+
+/* Controladores de Descrição para Imagens */
+
+.description-descricao{
+    width:100%;
+    padding: 0.2rem;
+    font-size:14px;
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important ;
+    background-color:rgba(24, 24, 24, 0.546);
+}
+
+.description-font{
+    width:100%;
+    padding: 0.2rem ;
+    font-size:0.7rem !important;
+    color: white !important ;
+    text-align: center;
+    background-color:rgba(24, 24, 24, 0.546);
+    font-style: normal;
+    font-weight: none;
+    font-family: var(--familia-da-font-paragrafo);
+
+}

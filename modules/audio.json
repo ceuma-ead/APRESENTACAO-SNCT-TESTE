@@ -1,0 +1,19 @@
+[
+    {   
+        "configuracao":{
+            "plugin":"audio",
+            "version":1,
+            "ativarAudio":true,
+            "moduloTranscritor":false,
+            "AtivarLista":true
+        } 
+    },
+    {
+        "_ativo":true,
+        "track": 1,
+        "name": "Podcast ...",
+        "audioSrc": "../sounds/podcast/podcast1.mp3"
+    }
+   
+   
+]

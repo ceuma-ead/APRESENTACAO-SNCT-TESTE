@@ -1,0 +1,119 @@
+{
+    "answers": [
+        {
+            "correct": false,
+            "text": "<div>Lançar o aplicativo conforme o cronograma e planejar uma atualização futura para corrigir os problemas de usabilidade identificados. <\/div>\n",
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            }
+        },
+        {
+            "correct": true,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>Organizar uma reunião com a equipe de desenvolvimento para discutir o feedback e implementar as correções necessárias com base nas prioridades definidas. <\/div>\n"
+        },
+
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>Aumentar o orçamento do projeto para contratar uma equipe externa especializada em usabilidade para corrigir os problemas rapidamente. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>Solicitar aos usuários de teste que continuem usando o aplicativo e enviar uma pesquisa para coletar mais feedback antes de tomar qualquer ação. <\/div>\n"
+        },
+        {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>Solicitar aos usuários de teste que continuem usando o aplicativo e enviar uma pesquisa para coletar mais feedback antes de tomar qualquer ação. <\/div>\n"
+        }, {
+            "correct": false,
+            "tipsAndFeedback": {
+                "tip": "",
+                "chosenFeedback": "",
+                "notChosenFeedback": ""
+            },
+            "text": "<div>Solicitar aos usuários de teste que continuem usando o aplicativo e enviar uma pesquisa para coletar mais feedback antes de tomar qualquer ação. <\/div>\n"
+        }
+        
+    ],
+    "UI": {
+        "showSolutionButton": "Mostrar resposta",
+        "tryAgainButton": "Tentar novamente",
+        "checkAnswerButton": "Conferir",
+        "tipsLabel": "Show tip",
+        "scoreBarLabel": "Você obteve :num de :total pontos",
+        "tipAvailable": "Tip available",
+        "feedbackAvailable": "Feedback available",
+        "readFeedback": "Read feedback",
+        "wrongAnswer": "Resposta errada",
+        "correctAnswer": "Resposta correta",
+        "shouldCheck": "Should have been checked",
+        "shouldNotCheck": "Should not have been checked",
+        "noInput": "Please answer before viewing the solution",
+        "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+        "a11yShowSolution": "Show the solution. The task will be marked with its correct solution.",
+        "a11yRetry": "Retry the task. Reset all responses and start the task over again."
+    },
+    "question": "<p>Uma engenheira de produção está gerenciando um projeto para desenvolver um novo aplicativo móvel para uma empresa de turismo. ApósUma engenheira de produção está gerenciando um projeto para desenvolver um novo aplicativo móvel para uma empresa de turismo. Após a cUma engenheira de produção está gerenciando um projeto para desenvolver um novo aplicativo móvel para uma empresa de turismo. Após a cUma engenheira de produção está gerenciando um projeto para desenvolver um novo aplicativo móvel para uma empresa de turismo. Após a c a conclusão da fase de desenvolvimento, o aplicativo está pronto para ser testado por um grupo seleto de usuários antes do lançamento final. Durante o período de testes, a engenheira recebe feedback de que o aplicativo possui vários problemas de usabilidade que não foram identificados anteriormente. Qual das seguintes ações é a mais adequada para a engenheira tomar para garantir que os problemas de usabilidade sejam resolvidos antes do lançamento oficial? <\/p>\n",
+    "behaviour": {
+        "enableRetry": true,
+        "enableSolutionsButton": true,
+        "singlePoint": true,
+        "randomAnswers": false,
+        "showSolutionsRequiresInput": true,
+        "type": "auto",
+        "confirmCheckDialog": false,
+        "confirmRetryDialog": false,
+        "autoCheck": true,
+        "passPercentage": 100,
+        "showScorePoints": true,
+        "enableCheckButton": true
+    },
+    "media": {
+        "disableImageZooming": true
+    },
+    "confirmCheck": {
+        "header": "Finish ?",
+        "body": "Are you sure you wish to finish ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Finish"
+    },
+    "confirmRetry": {
+        "header": "Retry ?",
+        "body": "Are you sure you wish to retry ?",
+        "cancelLabel": "Cancel",
+        "confirmLabel": "Confirm"
+    },
+    "overallFeedback": [
+        {
+            "from": 0,
+            "to": 0,
+            "feedback": "Não se preocupe! Você consegue!"
+        },
+        {
+            "from": 0,
+            "to": 100,
+            "feedback": "Parabéns!"
+        }
+    ]
+}
