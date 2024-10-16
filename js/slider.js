@@ -229,35 +229,50 @@ function adicionarFundo(slideIndex) {
         posicaoY: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-posicao-y-imagem').trim(),
         posicaoX: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-posicao-x-imagem').trim(),
         tamanho: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-tamanho-x-y-imagem').trim(),
+        fundoCapa:getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-sub-capa-default'),
     };
 
     if (pageData && pageData.paramentros && pageData.paramentros.cores.imagemFundo) {
         const {
             ativar = LogoPadrao.ativar, // Valores padrão em caso de ausência
-            img = LogoPadrao.img,
+            Capa = LogoPadrao.img,
+            subCapa = LogoPadrao.fundoCapa,
             posicaoY = LogoPadrao.posicaoY,
             posicaoX = LogoPadrao.posicaoX,
             tamanho = LogoPadrao.tamanho
 
         } = pageData.paramentros.cores.imagemFundo;
 
+         
         // console.log(pageData.paramentros.logo)
         const verificarItem = pageData.paramentros.cores
         if (Object.values(verificarItem).length === 0) {
             document.documentElement.style.setProperty('--imgem-fundo-carrosel', "url()");
+            document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', subCapa);
+
             return;
+        }else{
+            if(!Capa || Capa === ""){
+                document.documentElement.style.setProperty('--imgem-fundo-carrosel', "url()");
+            }
+
+            if(!subCapa || subCapa === ""){
+                document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', subCapa);
+            }
         }
 
         if (ativar) {
             // console.log(img)
             // console.log(document.documentElement.style.getPropertyValue('--imgem-fundo-carrosel'))
 
-            document.documentElement.style.setProperty('--imgem-fundo-carrosel', img);
+            document.documentElement.style.setProperty('--imgem-fundo-carrosel', Capa);
             document.documentElement.style.setProperty('--imgem-fundo-carrosel-posicao-y-imagem', posicaoY);
             document.documentElement.style.setProperty('--imgem-fundo-carrosel-posicao-x-imagem', posicaoX);
             document.documentElement.style.setProperty('--imgem-fundo-tamanho-x-y-imagem', tamanho);
+            document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', subCapa);
         } else {
             document.documentElement.style.setProperty('--imgem-fundo-carrosel', "url()");
+            document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', LogoPadrao.fundoCapa);
         }
     } else {
 
@@ -271,7 +286,7 @@ function adicionarFundo(slideIndex) {
         document.documentElement.style.setProperty('--imgem-fundo-carrosel', 'url()');
         document.documentElement.style.setProperty('--imgem-fundo-carrosel-posicao-y-imagem', LogoPadrao.posicaoY);
         document.documentElement.style.setProperty('--imgem-fundo-carrosel-posicao-x-imagem', LogoPadrao.posicaoX);
-
+        document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', LogoPadrao.fundoCapa);
 
     }
 }
@@ -1104,7 +1119,7 @@ function atualizarCoresdaNavegacao(slideIndex) {
         sidebar: getComputedStyle(document.documentElement).getPropertyValue('--fundo-siderbar-js-default'),
         fundo: getComputedStyle(document.documentElement).getPropertyValue('--fundo-carrosel-js-default'),
         icones: getComputedStyle(document.documentElement).getPropertyValue('--cor-dos-icones-siderbar-js-default'),
-        anotacao: getComputedStyle(document.documentElement).getPropertyValue('--cor-dos-icones-de-anotacao-default')
+        anotacao: getComputedStyle(document.documentElement).getPropertyValue('--cor-dos-icones-de-anotacao-default'),
     };
 
     // console.log(defaultCores.sidebar)
@@ -1116,7 +1131,7 @@ function atualizarCoresdaNavegacao(slideIndex) {
             sidebar = defaultCores.sidebar,
             fundo = defaultCores.fundo,
             icones = defaultCores.icones,
-            iconesEspecificos = {}
+            iconesEspecificos = {},
         } = pageData.paramentros.cores;
 
         // deixa as variaveis de cores especificas...
@@ -1148,12 +1163,16 @@ function atualizarCoresdaNavegacao(slideIndex) {
             document.documentElement.style.setProperty('--fundo-carrosel', defaultCores.fundo);
             document.documentElement.style.setProperty('--cor-dos-icones-siderbar', defaultCores.icones);
             document.documentElement.style.setProperty('--cor-dos-icones-de-anotacao', defaultCores.anotacao);
+            
             return;
         }
-
-
+        
+        
         document.documentElement.style.setProperty('--fundo-siderbar', sidebar);
         document.documentElement.style.setProperty('--fundo-carrosel', fundo);
+     
+        
+
         document.documentElement.style.setProperty('--cor-dos-icones-siderbar', icones);
     } else {
 
@@ -1167,6 +1186,7 @@ function atualizarCoresdaNavegacao(slideIndex) {
         document.documentElement.style.setProperty('--fundo-carrosel', defaultCores.fundo);
         document.documentElement.style.setProperty('--cor-dos-icones-siderbar', defaultCores.icones);
         document.documentElement.style.setProperty('--cor-dos-icones-de-anotacao', defaultCores.anotacao);
+       
     }
 }
 
@@ -2086,7 +2106,7 @@ function modulosPage(slideIndex) {
 
         moduloToolbar.forEach((modulo) => {
             const toolbarRenderizacao = modulo.toolbar;
-            
+
             if (toolbarRenderizacao) {
                 // Pegar o container de renderização
                 const containerToolbar = toolbarRenderizacao.idRef;
@@ -2099,7 +2119,7 @@ function modulosPage(slideIndex) {
 
                     // Iterar sobre cada elemento correspondente e processar cada um
                     containerElements.forEach((containerPage, index) => {
-                        
+
                         // Criar um marcador de referência para a página com IDs únicos
                         const uniqueId = `${toolbarRenderizacao.refTools}-${index}`;
                         containerPage.classList.add(toolbarRenderizacao.refTools);

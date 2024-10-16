@@ -209,7 +209,8 @@ const api = [
                 // "icones": "rgb(0, 110, 201)"
                 "imagemFundo": {
                     "ativar": true,
-                    "img": "url(../assets/fundo.png)",
+                    "Capa": "url(../assets/fundo.png)",
+                    "subCapa":"url(../assets/capaOverlay.png)",
                     "posicaoY": "bottom 1.8%",
                     "posicaoX": "left 0.5%",
                     "tamanho": "100%",
@@ -7238,6 +7239,845 @@ const api = [
         }
     },
 
+
+
+    // PÁGINA 26 Video Disciplina
+    /*
+        FILTRO
+            ------> pg[26]
+            ------> CM[Video Disciplina]
+        AQUI ÉA PÁGINA DE Video Disciplina
+        
+    */
+    {
+        "pagina": 26,
+        "nome_page": `Video Aula`,
+        "tipo": "Video",
+        "id_page": ".content-render-api",
+        "id_component": ".c-carousel__slides",
+        "id_elemento_para_modificar": "container-video",
+        "data": {
+            "container_render": `
+                <div class="pagina-tipo-video animation">
+
+                  <div class="pagina-tipo-video--box-video">
+                        <div class="f-carousel render-video-container" id="carrosel-video">
+                            <!-- Renderizador de Video -->
+                            <!-- 
+                            <div class="f-carousel__slide" data-thumb-src="https://i.vimeocdn.com/video/112836958_192x144.jpg">
+                                <iframe class="iframe-video" src="https://player.vimeo.com/video/112836958" ></iframe>
+                            </div>
+                            -->
+                            
+                        </div>
+                  </div>
+
+                  <div class="transcritor--box-video">
+                    <div>
+                        <!-- cabeçalho -->
+                        <p class="header-transcritor-video">Transcrição</p>
+                    </div>
+
+                    <div class="body-transcritor-video">
+                        <!-- body -->
+        
+                    </div>
+
+                    <div class="footer-transcritor-video">
+                        <!-- footer -->
+                        <button>Gerar Transcrição</button>
+                    </div>
+                  </div>
+                
+                </div>
+            `,
+        },
+        "forcarAtualizacao": {
+            "variaveis": [
+                {
+                    "Nome": "--animacao-sidebar",
+                    "Entrada": "none",
+                    "Saida": "slideDown 2s forwards"
+                }
+            ]
+        },
+        "paramentros": {
+            // Injetar estilos na Pagina
+            "inserir_estilo_pagina": [{
+                "url": "./conf/css/pagina5.css"
+            }],
+            "inserir_escript_pagina": [{
+                "onde": "body",
+                "posicao": "",
+                "src": ""
+            }],
+            "ferramentas": [
+                {
+                    "container": "icons-action--container",
+                    "Podcast": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-podcast " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": false,
+                        "html": `
+                            <button class="btn-videoaula " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas " aria-label="close" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ferramentas">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+                    "FullScreen": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-fullscreen " aria-label="min" data-bs-toggle="tooltip" data-bs-placement="bottom" title="FullScreen">
+                                <i data-lucide="maximize-2"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "icons-action--container-mobile",
+                    "Podcast": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": false,
+                        "html": `
+                            <button class="btn-videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas" aria-label="close">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "box-tools-inline",
+                    "Resulmo": {
+                        "ativa": false,
+                        "html": `
+                            <button class="abrir-resumo"><i data-lucide="file-text"></i>Resumo</button>
+                            
+                        `
+                    },
+                    "Destacar": {
+                        "ativa": false,
+                        "html": `
+                             <button class="acionador abrir-destacar"><i data-lucide="pencil"></i>Destacar</button>
+                        `,
+                        "acionador": `
+
+                            <div class="box-marca-cores-inline-btn" id="boxMarcaCores-inline-btn">
+                                <div class="cores-destaque-inline-btn">
+                                        <span class="corTexto" style="background-color: red;" data-cor="red" data-color="white"></span>
+                                        <span class="corTexto" style="background-color: green;" data-cor="green"  data-color="white"></span>
+                                        <span class="corTexto" style="background-color: blue;" data-cor="blue"  data-color="white"></span>
+                                        <button class="toolbar-button" id="limpar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eraser"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
+                                            Limpar
+                                        </button>
+                                 </div>
+                            </div>
+
+                        `
+                    },
+                    "Notas": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-annotation"><i data-lucide="sticky-note"></i>Notas</button>
+                        `
+                    },
+                    "Ouvinte": {
+                        "ativa": false,
+                        "html": `
+                             <button class="btn-ouvinte" data-bs-toggle="modal" data-bs-target="#modal-ouvinte"><i data-lucide="ear"></i>Ouvinte</button>
+                        `
+                    },
+                    "Download": {
+                        "ativa": true,
+                        "html": `
+                            <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                        `
+                    },
+                    "Dicionario": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-dicionario"><i data-lucide="search"></i>Dicionario</button>
+                        `
+                    },
+                    "close": {
+                        "ativa": true,
+                        "html": `
+                              <button><i data-lucide="x" id="close_box"></i></button>
+                        `
+                    },
+                }
+
+            ],
+            "marcador": [{
+                "tipo": "p",
+                "posicao": 0,
+                "palavras": "Olá, estudante! Bem-vindo à Unidade 1!",
+                "attr_unitario": {
+                    "Olá, estudante! Bem-vindo à Unidade 1!": {
+                        "attr": "font-weight=[999], Font-size=[18px]",
+
+                    },
+
+                },
+                // "fundo": "blue",
+                // "corTexto": "black",
+                // "padding": "0.3rem",
+
+
+            }],
+            "setas": {
+                "corSetas": "#fff",
+                "corFundo": "rgba(255, 255, 255, 0.174)"
+            },
+            "cores": {
+                "sidebar": "#000000",
+                "fundo": "#011C41",
+                "icones": "white",
+                "iconesEspecificos": {
+                    ".openAnnotation": {
+                        "cor": "white",
+                    }
+                }
+            },
+            "configuracoes_gerais": {
+
+                // Habilitar Procurar de Paragrafos ná Pagina 8 e Transcritor
+                "_procurar_paragrafos": {
+                    "status": true,
+                    "onde_procurar": ".transcritor--box-video",
+                },
+                "_procurar_animacao": {
+                    "status": true,
+                    "onde_procurar_animacao": ".animation",
+                },
+                "_renderizadar_video": {
+                    "status": true,
+                    "onde_colocar_video": ".render-video-container",
+                },
+
+            },
+            "fonte": {
+                // "titulo":"1rem",
+                "paragrafos": "1rem",
+                // "font_familly":"Lato",
+                // "cor_fonte":"black",
+                "alinhamento_texto": "justify",
+                "hifens": "auto"
+            },
+            "logo": {
+                "ativar": true,
+                "img": "url(../assets/logobranca.png)",
+                "posicaoY": "bottom 1.8%",
+                "posicaoX": "left 0.5%",
+                "tamanho": "10%",
+            },
+            // Animação para Texto API
+            // "animacao_texto": [{
+            //     "indice": "all", // 0 | all
+            //     "script_animation": `
+            //         animate__animated animate__fadeInDown animate__slow
+            //     `
+            // }],
+            // Animação pra toda Página
+            "animacao_elemento": [{
+                "elemento": ".animation", // 0 | all
+                "script_animation": `
+                    animate__animated animate__fadeInDown animate__slow
+                `
+            }],
+            "modulos": [
+                {
+                    "audio": {
+                        "ativo": true,
+                        "idRef": ".transcritor--box-video"
+                    }
+                }
+            ]
+        }
+    },
+
+    // PÁGINA 27 Audio Disciplina
+    /*
+        FILTRO
+            ------> pg[27]
+            ------> CMAudio Disciplina]
+        AQUI ÉA PÁGINA DE Audio Disciplina
+        
+    */
+    {
+        "pagina": 27,
+        "nome_page": `Podcast`,
+        "tipo": "Audio",
+        "id_page": ".content-render-api",
+        "id_component": ".c-carousel__slides",
+        "id_elemento_para_modificar": "container-audio",
+        "data": {
+            "container_render": `
+            <div class="pagina-tipo-audio animation">
+
+                <div class="pagina-tipo-audio--box-audio">
+                    <div class="render-audio-container" id="carrosel-audio">
+
+                    </div>
+                </div>
+
+                <div class="transcritor--box-audio">
+                    <div>
+                        <!-- cabeçalho -->
+                        <p class="header-transcritor-audio">Transcrição</p>
+                    </div>
+
+                    <div class="body-transcritor-audio">
+                        <!-- body -->
+                    
+                    </div>
+
+                    <div class="footer-transcritor-audio">
+                        <!-- footer -->
+                        <button>Gerar Transcrição</button>
+                    </div>
+                </div>
+            
+            </div>
+        `,
+        },
+        "forcarAtualizacao": {
+            "variaveis": [
+                {
+                    "Nome": "--animacao-sidebar",
+                    "Entrada": "none",
+                    "Saida": "slideDown 2s forwards"
+                }
+            ]
+        },
+        "paramentros": {
+            // Injetar estilos na Pagina
+            "inserir_estilo_pagina": [{
+                "url": "./conf/css/pagina5.css"
+            }],
+            "inserir_escript_pagina": [{
+                "onde": "body",
+                "posicao": "",
+                "src": ""
+            }],
+            "ferramentas": [
+                {
+                    "container": "icons-action--container",
+                    "Podcast": {
+                        "ativa": false,
+                        "html": `
+                            <button class="btn-podcast " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-videoaula " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas " aria-label="close" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ferramentas">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+                    "FullScreen": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-fullscreen " aria-label="min" data-bs-toggle="tooltip" data-bs-placement="bottom" title="FullScreen">
+                                <i data-lucide="maximize-2"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "icons-action--container-mobile",
+                    "Podcast": {
+                        "ativa": false,
+                        "html": `
+                            <button class="btn-podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas" aria-label="close">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "box-tools-inline",
+                    "Resulmo": {
+                        "ativa": false,
+                        "html": `
+                            <button class="abrir-resumo"><i data-lucide="file-text"></i>Resumo</button>
+                            
+                        `
+                    },
+                    "Destacar": {
+                        "ativa": false,
+                        "html": `
+                             <button class="acionador abrir-destacar"><i data-lucide="pencil"></i>Destacar</button>
+                        `,
+                        "acionador": `
+
+                            <div class="box-marca-cores-inline-btn" id="boxMarcaCores-inline-btn">
+                                <div class="cores-destaque-inline-btn">
+                                        <span class="corTexto" style="background-color: red;" data-cor="red" data-color="white"></span>
+                                        <span class="corTexto" style="background-color: green;" data-cor="green"  data-color="white"></span>
+                                        <span class="corTexto" style="background-color: blue;" data-cor="blue"  data-color="white"></span>
+                                        <button class="toolbar-button" id="limpar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eraser"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
+                                            Limpar
+                                        </button>
+                                 </div>
+                            </div>
+
+                        `
+                    },
+                    "Notas": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-annotation"><i data-lucide="sticky-note"></i>Notas</button>
+                        `
+                    },
+                    "Ouvinte": {
+                        "ativa": false,
+                        "html": `
+                             <button class="btn-ouvinte" data-bs-toggle="modal" data-bs-target="#modal-ouvinte"><i data-lucide="ear"></i>Ouvinte</button>
+                        `
+                    },
+                    "Download": {
+                        "ativa": true,
+                        "html": `
+                            <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                        `
+                    },
+                    "Dicionario": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-dicionario"><i data-lucide="search"></i>Dicionario</button>
+                        `
+                    },
+                    "close": {
+                        "ativa": true,
+                        "html": `
+                              <button><i data-lucide="x" id="close_box"></i></button>
+                        `
+                    },
+                }
+
+            ],
+            "marcador": [{
+                "tipo": "p",
+                "posicao": 0,
+                "palavras": "Olá, estudante! Bem-vindo à Unidade 1!",
+                "attr_unitario": {
+                    "Olá, estudante! Bem-vindo à Unidade 1!": {
+                        "attr": "font-weight=[999], Font-size=[18px]",
+
+                    },
+
+                },
+                // "fundo": "blue",
+                // "corTexto": "black",
+                // "padding": "0.3rem",
+
+
+            }],
+            "cores": {
+                "sidebar": "#000000",
+                "fundo": "#011C41",
+                "icones": "white",
+                // Cores de icones Especificas
+                "iconesEspecificos": {
+                    ".openAnnotation": {
+                        "cor": "white",
+                    }
+                }
+            },
+            "setas": {
+                "corSetas": "#fff",
+                "corFundo": "rgba(255, 255, 255, 0.174)"
+            },
+            "configuracoes_gerais": {
+
+                // Habilitar Procurar de Paragrafos ná Pagina 8 e Transcritor
+                "_procurar_paragrafos": {
+                    "status": true,
+                    "onde_procurar": ".transcritor--box-audio",
+                },
+                "_procurar_animacao": {
+                    "status": true,
+                    "onde_procurar_animacao": ".animation",
+                },
+                "_renderizar_audio": {
+                    "status": true,
+                    "onde_colocar_audio": ".render-audio-container",
+                },
+
+            },
+            "fonte": {
+                // "titulo":"1rem",
+                "paragrafos": "1rem",
+                // "font_familly":"Lato",
+                // "cor_fonte":"black",
+                "alinhamento_texto": "justify",
+                "hifens": "auto"
+            },
+            "logo": {
+                "ativar": true,
+                "img": "url(../assets/logobranca.png)",
+                "posicaoY": "bottom 1.8%",
+                "posicaoX": "left 0.5%",
+                "tamanho": "10%",
+            },
+            // Animação para Texto API
+            // "animacao_texto": [{
+            //     "indice": "all", // 0 | all
+            //     "script_animation": `
+            //         animate__animated animate__fadeInDown animate__slow
+            //     `
+            // }],
+            // Animação pra toda Página
+            "animacao_elemento": [{
+                "elemento": ".animation", // 0 | all
+                "script_animation": `
+                animate__animated animate__fadeInDown animate__slow
+            `
+            }],
+            "modulos": [
+                {
+                    "audio": {
+                        "ativo": true,
+                        "idRef": ".transcritor--box-audio"
+                    }
+                }
+            ]
+        }
+    },
+
+    // PÁGINA 28 Atividade Disciplina
+    /*
+        FILTRO
+            ------> pg[28]
+            ------> CMAudio Disciplina]
+        AQUI ÉA PÁGINA DE Atividade Disciplina
+        
+    */
+    {
+        "pagina": 28,
+        "nome_page": `Atividade`,
+        "tipo": "Atividade",
+        "id_page": ".content-render-api",
+        "id_component": ".c-carousel__slides",
+        "id_elemento_para_modificar": "container-atividade",
+        "data": {
+            "container_render": `
+                <div class="pagina-tipo-atividade animation">
+                    <div id="h5p-container"></div>
+                </div>
+        `,
+        },
+        "forcarAtualizacao": {
+            "variaveis": [
+                {
+                    "Nome": "--animacao-sidebar",
+                    "Entrada": "none",
+                    "Saida": "slideDown 2s forwards"
+                }
+            ]
+        },
+        "paramentros": {
+            // Injetar estilos na Pagina
+            "inserir_estilo_pagina": [{
+                "url": "./conf/css/pagina5.css"
+            }],
+            "inserir_escript_pagina": [
+                {
+                    "onde": "body",
+                    "posicao": "beforeend",
+                    "src": "./conf/js/atividade.js"
+                }
+            ],
+            "ferramentas": [
+                {
+                    "container": "icons-action--container",
+                    "Podcast": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-podcast " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-videoaula " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas " aria-label="close" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ferramentas">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+                    "FullScreen": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-fullscreen " aria-label="min" data-bs-toggle="tooltip" data-bs-placement="bottom" title="FullScreen">
+                                <i data-lucide="maximize-2"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "icons-action--container-mobile",
+                    "Podcast": {
+                        "ativa": false,
+                        "html": `
+                            <button class="btn-podcast">
+                                <i data-lucide="audio-lines"></i>
+                            </button>
+                        `
+                    },
+                    "Videoaula": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-videoaula">
+                                <i data-lucide="video"></i>
+                            </button>
+                        `
+                    },
+                    "Ferramentas": {
+                        "ativa": true,
+                        "html": `
+                            <button class="btn-ferramentas" aria-label="close">
+                                <i data-lucide="pencil-ruler"></i>
+                            </button>
+                        `
+                    },
+
+                },
+                {
+                    "container": "box-tools-inline",
+                    "Resulmo": {
+                        "ativa": true,
+                        "html": `
+                            <button class="abrir-resumo"><i data-lucide="file-text"></i>Resumo</button>
+                            
+                        `
+                    },
+                    "Destacar": {
+                        "ativa": false,
+                        "html": `
+                             <button class="acionador abrir-destacar"><i data-lucide="pencil"></i>Destacar</button>
+                        `,
+                        "acionador": `
+
+                            <div class="box-marca-cores-inline-btn" id="boxMarcaCores-inline-btn">
+                                <div class="cores-destaque-inline-btn">
+                                        <span class="corTexto" style="background-color: red;" data-cor="red" data-color="white"></span>
+                                        <span class="corTexto" style="background-color: green;" data-cor="green"  data-color="white"></span>
+                                        <span class="corTexto" style="background-color: blue;" data-cor="blue"  data-color="white"></span>
+                                        <button class="toolbar-button" id="limpar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eraser"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
+                                            Limpar
+                                        </button>
+                                 </div>
+                            </div>
+
+                        `
+                    },
+                    "Notas": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-annotation"><i data-lucide="sticky-note"></i>Notas</button>
+                        `
+                    },
+                    "Ouvinte": {
+                        "ativa": false,
+                        "html": `
+                             <button class="btn-ouvinte" data-bs-toggle="modal" data-bs-target="#modal-ouvinte"><i data-lucide="ear"></i>Ouvinte</button>
+                        `
+                    },
+                    "Download": {
+                        "ativa": false,
+                        "html": `
+                            <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                        `
+                    },
+                    "Dicionario": {
+                        "ativa": true,
+                        "html": `
+                             <button class="abrir-dicionario"><i data-lucide="search"></i>Dicionario</button>
+                        `
+                    },
+                    "close": {
+                        "ativa": true,
+                        "html": `
+                              <button><i data-lucide="x" id="close_box"></i></button>
+                        `
+                    },
+                }
+
+            ],
+            "cores": {
+                // "sidebar": "#000000",
+                // "fundo": "#011C41",
+                // "icones": "white",
+                // Cores de icones Especificas
+                // "iconesEspecificos":{
+                //     ".openAnnotation":{
+                //         "cor":"white",
+                //     }  
+                // }
+            },
+            "configuracoes_gerais": {
+                 // Habilitar Procurar de Paragrafos ná Pagina 6
+                //  "_procurar_paragrafos": {
+                //     "status": true,
+                //     "onde_procurar": ".pagina-tipo-atividade",
+                // },
+                // "_procurar_animacao": {
+                //     "status": true,
+                //     "onde_procurar_animacao": ".animation",
+                // }
+            },
+            "fonte": {
+                // "titulo":"1rem",
+                "paragrafos": "1rem",
+                // "font_familly":"Lato",
+                // "cor_fonte":"black",
+                "alinhamento_texto": "justify",
+                "hifens": "auto"
+            },
+            "logo": {
+                "ativar": true,
+                "img": "url(../assets/logobranca.png)",
+                "posicaoY": "bottom 1.8%",
+                "posicaoX": "left 0.5%",
+                "tamanho": "10%",
+            },
+            // Animação para Texto API
+            // "animacao_texto": [{
+            //     "indice": "all", // 0 | all
+            //     "script_animation": `
+            //         animate__animated animate__fadeInDown animate__slow
+            //     `
+            // }],
+            // Animação pra toda Página
+            "animacao_elemento": [{
+                "elemento": ".animation", // 0 | all
+                "script_animation": `
+                animate__animated animate__fadeInDown animate__slow
+            `
+            }],
+            "modulos": [
+                {
+                    "audio": {
+                        "ativo": true,
+                        "idRef": ".transcritor--box-audio"
+                    },
+                    "toolbar": {
+                        "ativo": true,
+                        "refTools": ['editar'],
+                        "idRef": "",
+                        "blocoRenderizacao": `
+                            <div id="toolbar" style="display: none; position: absolute;">
+                                <div class="toolbar-container">
+                                    <div class="box-marca-cores" id="boxMarcaCores" style="display: none;">
+                                        <div class="cores-destaque">
+                                            <span class="corTexto" style="background-color: red;" data-cor="red" data-color="white"></span>
+                                            <span class="corTexto" style="background-color: green;" data-cor="green"  data-color="white"></span>
+                                            <span class="corTexto" style="background-color: blue;" data-cor="blue"  data-color="white"></span>
+                                            <button class="toolbar-button" id="limpar">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eraser"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
+                                                Limpar
+                                            </button>
+                                            
+                                        </div>
+                                    </div>
+                                    <button class="toolbar-button" id="resumo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                                        Resumo
+                                    </button>
+                                    <button class="toolbar-button" id="destacar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+                                        Destacar
+                                    </button>
+                                    <button class="toolbar-button" id="dicionario-toolbar">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-search"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></svg>
+                                        Dicionário
+                                    </button>
+                                    
+                                </div>
+                            </div>
+
+                       `
+                    }
+                }
+            ]
+            
+        }
+    },
 
 
 
