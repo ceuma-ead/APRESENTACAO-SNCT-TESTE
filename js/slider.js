@@ -2012,7 +2012,7 @@ function modulosPage(slideIndex) {
                                     // Criar link para baixar o arquivo de áudio
                                     const link = document.createElement('a');
                                     link.href = url;
-                                    link.download = 'audio.mp3';
+                                    link.download = `${pageData.nome_page}.mp3`;
                                     link.click();
 
                                 })
@@ -2044,57 +2044,6 @@ function modulosPage(slideIndex) {
                 console.error('Erro:', error);
             }
         });
-
-        // Modulo de Toolbar
-        // const moduloToolbar = pageData.paramentros.modulos
-
-        // moduloToolbar.forEach((modulo) => {
-        //     const toolbarRenderizacao = modulo.toolbar
-
-        //     if (toolbarRenderizacao) {
-
-        //         // pegar container de renderização
-        //         const containerToolbar = toolbarRenderizacao.idRef
-        //         // console.log(containerToolbar)
-        //         //Container do CarroselComponentes id_component
-
-        //         const CarroselComponent = document.querySelector(`${pageData.id_component}`)
-        //         console.log(CarroselComponent)
-
-        //         const containerPage = document.querySelectorAll(containerToolbar)[0];
-        //         // console.log(containerPage)
-        //         if (containerPage) {
-        //             const classRemover = document.querySelector(".div-render-toolbar");
-
-        //             if (classRemover) {
-        //                 $(".div-render-toolbar").html("");
-        //             }
-        //             // criar um marcador de referencia para a página
-        //             containerPage.classList.add(toolbarRenderizacao.refTools);
-        //             let div = document.createElement("div");
-        //             div.className = `div-render-toolbar`;
-        //             const toolbar = toolbarRenderizacao.blocoRenderizacao;
-        //             // Atribuir um Atributo para ele procurar o toolbar pelos containers
-        //             containerPage.setAttribute("procurar-toolbar-rfTools",toolbarRenderizacao.refTools)
-        //             // console.log(containerPage)
-
-
-        //             div.innerHTML = `${toolbar}`
-        //             document.body.appendChild(div)
-
-
-        //             // Passar as configurações para o
-        //             if(typeof toolbarRender === "function"){
-        //                 toolbarRender(pageData , slideIndex , toolbarRenderizacao.refTools);
-
-        //             } 
-        //         }
-
-        //     } else {
-        //         $(".div-render-toolbar").html(``);
-        //         console.log("Toolbar Não Ativo para Essa página")
-        //     }
-        // })
 
         // Módulo de Toolbar
         const moduloToolbar = pageData.paramentros.modulos;

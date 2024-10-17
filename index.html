@@ -162,8 +162,8 @@
 
                 <!-- Botão de Abrir Sumário -->
                 <button id="btnOpenSumario">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-notebook-text">
                         <path d="M2 6h4" />
@@ -175,8 +175,13 @@
                         <path d="M9.5 12H16" />
                         <path d="M9.5 16H14" />
                     </svg>
-
+                
                 </button>
+            <!-- Botão de Abrir Sumário -->
+
+            <!-- Botão de Abrir Marcação -->
+          
+            <!-- Botão de Abrir Marcação -->
 
                 <!-- Menu Sumario -->
                 <div class="sidebar-menu">
@@ -576,6 +581,43 @@
                 </div>
                 <!-- Menu Resumo -->
 
+                <!-- Menu Marcação -->
+                <div class="marcacao-menu">
+                    <header>
+                        <i class="text-light marcacao-adds close_marcacao" data-lucide="circle-x"></i>
+                        <p>Marcações</p>
+                        <!-- <i class="text-light marcacao-adds"
+                                data-lucide="history"></i> -->
+                    </header>
+
+                    <!-- Caixa para Renderizar os Itens -->
+                    <div class="render-marcacao" id="result-marcacao">
+                        <!-- Resultados vão aparecer aqui -->
+                        <!-- <div class="render-dicionario-result">
+                                <span>Laboral</span>
+                                <p>
+                                    Significado de Laboral
+                                    adjetivo
+                                    Que se refere à labuta, ao labor, ao trabalho; trabalhista: ambiente laboral tranquilo.
+                                    Definição de Laboral
+                                    Classe gramatical: adjetivo de dois gênerosSeparação silábica: la-bo-ralPlural: laborais
+                                </p>
+                            </div> -->
+                    </div>
+
+                    <!-- Loader (escondido inicialmente) -->
+                    <div id="loading-marcacao" style="display: none;"></div>
+
+                    <!-- Caixa para Pesquisa -->
+                    <footer>
+                        <div class="searchMarcacao">
+                            <input id="search-input" type="text" placeholder="Buscar Marcação...">
+                            <span class="buscarMarcacao" id="buscarPalavra"><i data-lucide="text-search"></i></span>
+                        </div>
+                    </footer>
+                </div>
+                <!-- Menu Marcação -->
+
             </div>
             <!-- Menu Navigation -->
         </header>
@@ -583,7 +625,7 @@
 
         <!-- Iniciando Menu Mobile -->
 
-        <div>
+        <div class="position-relative">
             <nav class=" navbar navbar-expand-lg d-block d-md-none">
                 <div class="collapse navbar-collapse icons-action--container-mobile " id="navbarNavDropdown">
                     <!-- <button><i data-lucide="audio-lines"></i></button>
@@ -607,6 +649,12 @@
             <div class="icon--annotation-action">
                 <button class="openAnnotation"><i class='bi bi-sticky'></i></button>
             </div>
+            <button class="marcacao-button">
+                Marcações <i data-lucide="text-select"></i>
+                <span class="counter-marcacao-button">0</span>
+            </button>
+            
+            
         </div>
         <!-- Finalizando Menu Mobile -->
 
@@ -761,6 +809,10 @@
 
     <!-- Script de Anotações -->
     <script type="text/javascript" src="./js/annotation.js"></script>
+    <!-- Script de Anotações -->
+
+    <!-- Script de Anotações -->
+    <script type="text/javascript" src="./js/marcacao.js"></script>
     <!-- Script de Anotações -->
 
     <!-- Arquivo de Components -->

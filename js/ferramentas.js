@@ -351,12 +351,24 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
 
     async function baixarPDF(arquivo = "") {
 
+
+
         const uuidGerado = uuid();
         const link = document.createElement('a');
         link.href = arquivo;
-        link.download = arquivo.substring(arquivo.lastIndexOf('/') + 1) + '_' + uuidGerado; // Nome do arquivo extraído da URL
-        document.body.appendChild(link);
 
+        // Extrai o nome do arquivo e a extensão
+        const nomeArquivoOriginal = arquivo.substring(arquivo.lastIndexOf('/') + 1); // Nome do arquivo original
+        const nomeArquivoSemExtensao = nomeArquivoOriginal.substring(0, nomeArquivoOriginal.lastIndexOf('.')); // Nome sem a extensão
+        const extensao = nomeArquivoOriginal.substring(nomeArquivoOriginal.lastIndexOf('.')); // Extensão do arquivo
+
+        // Monta o novo nome do arquivo com o UUID
+        const novoNomeArquivo = `${nomeArquivoSemExtensao}_${uuidGerado}${extensao}`;
+
+
+        // uuidGerado 
+        link.download = novoNomeArquivo; // Nome do arquivo extraído da URL
+        document.body.appendChild(link);
         let timerInterval;
         Swal.fire({
             title: 'Buscando seu arquivo 🔎...',
@@ -384,11 +396,11 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
                 const idReduzido = reduzirTexto(uuidGerado, 10);
                 Swal.fire({
                     icon: "info",
-                    title: `Sucesso`,
+                    title: `Arquivo Baixado`,
                     html: `
                         <div>
                             <p>Você pode tentar isso 😉</p>
-                            <a href="#" class="baixarLink">Caso seu download não tenha iniciando automaticamente click aqui. ${uuidGerado}</a>
+                            <a href="${uuidGerado}" class="baixarLink">Caso seu download não tenha iniciando automaticamente click aqui_${uuidGerado}</a>
                         </div>
                     `,
                     heightAuto: false,

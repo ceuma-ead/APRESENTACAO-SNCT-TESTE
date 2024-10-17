@@ -420,7 +420,7 @@ const api = [
                     "Download": {
                         "ativa": true,
                         "html": `
-                                <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                                <button class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
                             `
                     },
                     "Dicionario": {
@@ -714,7 +714,7 @@ const api = [
                     "Download": {
                         "ativa": true,
                         "html": `
-                                <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                                <button class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
                             `
                     },
                     "Dicionario": {
@@ -1002,7 +1002,7 @@ const api = [
                     "Download": {
                         "ativa": true,
                         "html": `
-                                <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                                <button class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
                             `
                     },
                     "Dicionario": {
@@ -1184,7 +1184,7 @@ const api = [
                     "src": ""
                 }
             ],
-            "ferramentas": [
+           "ferramentas": [
                 {
                     "container": "icons-action--container",
                     "Podcast": {
@@ -1294,7 +1294,7 @@ const api = [
                     "Download": {
                         "ativa": true,
                         "html": `
-                                <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                                <button class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
                             `
                     },
                     "Dicionario": {
@@ -1568,7 +1568,7 @@ const api = [
                     "Download": {
                         "ativa": true,
                         "html": `
-                                <button pdf-data="../pdf/unidade-01.pdf"  class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
+                                <button class="baixar-pdf" ><i data-lucide="download"></i>Download</button>
                             `
                     },
                     "Dicionario": {
