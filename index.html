@@ -7,15 +7,30 @@
         <meta name="description" content="SLDCEUMA (2.0) Version <BETA>">
         <meta name="author" content="Ceuma">
         <title>SLDCEUMA +2.0</title>
+        <script async>
+        
+            function workingLoadingPage() {
+                document.getElementById('loading-spinner').style.display = "flex";
+            }
 
+            if (document.readyState === "loading") {
+                // Loading hasn't finished yet
+                document.addEventListener("DOMContentLoaded", workingLoadingPage());
+            } else {
+                // `DOMContentLoaded` has already fired
+                orkingLoadingPage();
+            }
+
+        </script>
+    
         <!-- Estilos Globais de responsividade e Gerais -->
+        <link rel="stylesheet" type="text/css" href="./css/spinner.css">
         <link rel="stylesheet" type="text/css" href="./global/style.css">
         <script type="text/javascript" src="./global/global.js"></script>
         <link rel="stylesheet" type="text/css"
             href="./global/responsive.min.css">
         <!-- Estilos Globais de responsividade e Gerais -->
 
-        
         <!-- Arquitetura Analisador De Erros -->
         <script type="text/javascript" src="./js/error.js"></script>
         <!-- Arquitetura Analisador De Erros -->
@@ -108,7 +123,13 @@
     </head>
 
     <body>
+        <!-- Spinner Loadding -->
+        <div id="loading-spinner" style="display: none;">
+            <!-- Aqui você pode colocar um spinner ou qualquer animação de loading -->
+            <div class="spinner"></div>
+        </div>
 
+        <!-- Spinner Loadding -->
         <div class="w-100 h-100 d-flex flex-column item ">
             <!-- Header de Navegação -->
             <header class="siderbar">
@@ -121,14 +142,6 @@
                         aria-label="Toggle navigation">
                         <i class="text-light" data-lucide="menu"></i>
                     </button>
-
-                    <!-- Spinner Loadding -->
-                    <div id="loading-spinner" style="display: none;">
-                        <!-- Aqui você pode colocar um spinner ou qualquer animação de loading -->
-                        <div class="spinner"></div>
-                    </div>
-
-                    <!-- Spinner Loadding -->
 
                     <!-- Menu Desktop -->
                     <!-- Iniciando Menu Desktop  -->
@@ -741,9 +754,9 @@
             <div vw class="enabled">
                 <div vw-access-button class="active"></div>
                 <div vw-plugin-wrapper>
-                  <div class="vw-plugin-top-wrapper"></div>
+                    <div class="vw-plugin-top-wrapper"></div>
                 </div>
-              </div>
+            </div>
             <!-- Adicionando o Vlibras a Página -->
 
             <!-- Modal Tutorial -->
@@ -771,7 +784,6 @@
         </div>
 
         <script type="text/javascript" src="./plugins/popper.min.js"></script>
-
         <script type="text/javascript" src="./js/tooltip.js"></script>
         <script type="text/javascript" src="./js/popover.js"></script>
 
@@ -808,7 +820,6 @@
         <!-- Script de Anotações -->
         <script type="text/javascript" src="./js/annotation.js"></script>
         <!-- Script de Anotações -->
-         
 
         <!-- Arquivo de Components -->
         <script type="text/javascript" src="./api/Components/Lupa.js"></script>
@@ -853,7 +864,8 @@
         <!-- Script de Video para renderização -->
 
         <!-- Script de Audio para renderização -->
-        <script type="text/javascript" src="./plugins/plyr/plyr.min.js"></script>
+        <script type="text/javascript"
+            src="./plugins/plyr/plyr.min.js"></script>
         <script type="text/javascript" src="./js/audio.js"></script>
         <!-- Script de Audio para renderização -->
 
@@ -868,7 +880,7 @@
           new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
         <!-- Criando Ponto de Intregação do Vlibras -->
-        
+
         <!-- Script para modulo do H5P -->
         <script type="text/javascript">
             const {
@@ -880,13 +892,12 @@
                 frameCss: './plugins/h5p/core/styles/h5p.css'
             });
         </script>
-
+        <!-- Script para modulo do H5P -->
 
         <!-- Arquitetura De Responsividade -->
         <script type="text/javascript" src="./api/responsive.js"></script>
         <!-- Arquitetura De Responsividade -->
 
-        <!-- Script para modulo do H5P -->
     </body>
 
 </html>

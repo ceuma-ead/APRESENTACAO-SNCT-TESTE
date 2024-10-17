@@ -91,9 +91,6 @@ function hideLoading() {
     loadingSpinner.style.display = 'none';
 }
 
-
-
-
 //Executar para rolar para o slider que está salvo
 
 // recalculando o Layout com base no visibility dele
@@ -104,6 +101,7 @@ function iraoItemquandoCarregar() {
         loadingSpinner.style.display = 'flex';
     });
 }
+
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -131,8 +129,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
     });
-
-
 });
 
 //Controlador de Filtragem do Sumario =================
@@ -229,7 +225,7 @@ function adicionarFundo(slideIndex) {
         posicaoY: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-posicao-y-imagem').trim(),
         posicaoX: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-posicao-x-imagem').trim(),
         tamanho: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-tamanho-x-y-imagem').trim(),
-        fundoCapa:getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-sub-capa-default'),
+        fundoCapa: getComputedStyle(document.documentElement).getPropertyValue('--imgem-fundo-carrosel-sub-capa-default'),
     };
 
     if (pageData && pageData.paramentros && pageData.paramentros.cores.imagemFundo) {
@@ -243,7 +239,7 @@ function adicionarFundo(slideIndex) {
 
         } = pageData.paramentros.cores.imagemFundo;
 
-         
+
         // console.log(pageData.paramentros.logo)
         const verificarItem = pageData.paramentros.cores
         if (Object.values(verificarItem).length === 0) {
@@ -251,12 +247,12 @@ function adicionarFundo(slideIndex) {
             document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', subCapa);
 
             return;
-        }else{
-            if(!Capa || Capa === ""){
+        } else {
+            if (!Capa || Capa === "") {
                 document.documentElement.style.setProperty('--imgem-fundo-carrosel', "url()");
             }
 
-            if(!subCapa || subCapa === ""){
+            if (!subCapa || subCapa === "") {
                 document.documentElement.style.setProperty('--imgem-fundo-carrosel-sub-capa', subCapa);
             }
         }
@@ -346,7 +342,6 @@ function adicionarLogo(slideIndex) {
 
     }
 }
-
 
 // Função para lidar com o evento de pesquisa
 function itemnsMenu(filtro = '', slideIndex, ocultarDuplicados = true) {
@@ -1163,15 +1158,15 @@ function atualizarCoresdaNavegacao(slideIndex) {
             document.documentElement.style.setProperty('--fundo-carrosel', defaultCores.fundo);
             document.documentElement.style.setProperty('--cor-dos-icones-siderbar', defaultCores.icones);
             document.documentElement.style.setProperty('--cor-dos-icones-de-anotacao', defaultCores.anotacao);
-            
+
             return;
         }
-        
-        
+
+
         document.documentElement.style.setProperty('--fundo-siderbar', sidebar);
         document.documentElement.style.setProperty('--fundo-carrosel', fundo);
-     
-        
+
+
 
         document.documentElement.style.setProperty('--cor-dos-icones-siderbar', icones);
     } else {
@@ -1186,7 +1181,7 @@ function atualizarCoresdaNavegacao(slideIndex) {
         document.documentElement.style.setProperty('--fundo-carrosel', defaultCores.fundo);
         document.documentElement.style.setProperty('--cor-dos-icones-siderbar', defaultCores.icones);
         document.documentElement.style.setProperty('--cor-dos-icones-de-anotacao', defaultCores.anotacao);
-       
+
     }
 }
 

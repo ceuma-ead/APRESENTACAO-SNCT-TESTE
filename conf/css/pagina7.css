@@ -1,3 +1,5 @@
+@import url(../../css/variaveis.css);
+
 .lista-customizada{
     width: 100%;
     display: flex;
@@ -25,7 +27,7 @@
 
     width: 100%;
     color: white;
-    font-size: 0.9rem;
+    font-size: var(--font-para-paragrafos);
     font-family: 'Roboto', sans-serif;
     background-color: #0f407a;
     /* list-style-type: none; */

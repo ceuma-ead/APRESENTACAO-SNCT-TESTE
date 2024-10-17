@@ -122,14 +122,15 @@
 #image-capaOverlay {
     display: flex;
     position: absolute;
-    max-width:50%;
-    width:50%;
+    max-width:100%;
+    width:100%;
     max-height:100%;
     padding: 1rem;
     height:100%;
     background-image: var(--imgem-fundo-carrosel-sub-capa);
     background-position: center center;
     background-size:cover;
+    background-repeat: no-repeat;
     filter: opacity(0.7);
     object-fit: fill;
     z-index: -1;

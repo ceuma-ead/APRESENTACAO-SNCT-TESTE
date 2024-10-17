@@ -51,23 +51,23 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
         return 'destaque-' + Math.random().toString(36).substr(2, 9);
     }
 
-    function salvarDestaque(palavra, corFundo, corTexto, containerId, elementoIndex, startOffset, endOffset, parentTag, dataHora, estiloTexto, elementoIndexNodeList) {
+    function salvarDestaque(idUnicoMarcador = null, palavra, corFundo, corTexto, containerId, elementoIndex, startOffset, endOffset, parentTag, dataHora, estiloTexto, elementoIndexNodeList) {
         const idUnico = gerarIdUnico(); // Gerar ID único para o destaque
 
         const destaque = {
-            id: idUnico,                    // ID único
-            palavra: palavra,               // Palavra destacada
-            paginaIndex: sliderIndex,     // Salvar Página de Marcação
-            corFundo: corFundo,             // Cor de fundo aplicada
-            corTexto: corTexto,             // Cor do texto aplicada
-            containerId: containerId,       // ID do contêiner
-            elementoIndex: elementoIndex,   // Índice do elemento (p, div, etc.)
-            elementoIndexNodeList: elementoIndexNodeList, // Índice do elemento dentro de sua NodeList (p, div, button, etc.)
-            startOffset: startOffset,       // Posição inicial do texto destacado
-            endOffset: endOffset,           // Posição final do texto destacado
-            parentTag: parentTag,           // Tag do elemento pai (p, div, etc.)
-            dataHora: dataHora,             // Data e hora do destaque
-            estiloTexto: estiloTexto        // Estilo adicional, como negrito ou itálico
+            id: idUnicoMarcador === null ? idUnico : idUnicoMarcador,                      // ID único
+            palavra: palavra,                                                               // Palavra destacada
+            paginaIndex: sliderIndex,                                                       // Salvar Página de Marcação
+            corFundo: corFundo,                                                             // Cor de fundo aplicada
+            corTexto: corTexto,                                                             // Cor do texto aplicada
+            containerId: containerId,                                                       // ID do contêiner
+            elementoIndex: elementoIndex,                                                   // Índice do elemento (p, div, etc.)
+            elementoIndexNodeList: elementoIndexNodeList,                                   // Índice do elemento dentro de sua NodeList (p, div, button, etc.)
+            startOffset: startOffset,                                                       // Posição inicial do texto destacado
+            endOffset: endOffset,                                                           // Posição final do texto destacado
+            parentTag: parentTag,                                                           // Tag do elemento pai (p, div, etc.)
+            dataHora: dataHora,                                                             // Data e hora do destaque
+            estiloTexto: estiloTexto                                                        // Estilo adicional, como negrito ou itálico
         };
 
         // Salva o destaque individualmente
@@ -83,33 +83,34 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
             const configuracao = await toolbarConfig();
             const marcarMultiplosElementos = configuracao.toolbar_configuracao.marcarMultiplosElementos;
             let elementosSelecionaveis = configuracao.toolbar_actions.elementos_marcacao;
-    
+
             const selection = window.getSelection();
             if (!selection.rangeCount) {
                 console.error('Nenhum range encontrado para clonar.');
                 return;
             }
-    
+
             const range = selectedRange.cloneRange(); // Clonar o range para preservar a seleção
-    
+
             const startContainer = range.startContainer;
             const endContainer = range.endContainer;
-    
+
             const containerMarcador = documentoRenderizacao; // Classes permitidas para destacar
             const container = startContainer.parentElement.closest(containerMarcador.map(cls => `.${cls}`).join(','));
-    
+
             if (!container) {
                 console.log('Seleção fora de contêiner permitido.');
                 return;
             }
-    
+
             // Selecionar apenas os elementos destacáveis (p, div, button, etc.) dentro do container
-            const elementos = Array.from(container.querySelectorAll('*')).filter(el => 
+            const elementos = Array.from(container.querySelectorAll('*')).filter(el =>
                 elementosSelecionaveis.includes(el.nodeName.toLowerCase())
             );
-    
+
             // Função auxiliar para destacar um trecho de texto
             function highlightRange(r, elementoIndex, tagName, elementoIndexNodeList) {
+                const idMarcador = gerarIdUnico();
                 let marcador = document.createElement('marcador');
                 marcador.style.backgroundColor = corFundo;
                 marcador.style.color = corTexto;
@@ -119,9 +120,10 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                 const fragment = r.extractContents();
                 marcador.appendChild(fragment);
                 r.insertNode(marcador);
-    
+
                 // Salvar o destaque
                 salvarDestaque(
+                    idMarcador,                 // ID do marcador
                     marcador.textContent,
                     corFundo,
                     corTexto,
@@ -135,29 +137,29 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                     elementoIndexNodeList       // Índice na NodeList dos elementos do mesmo tipo
                 );
             }
-    
+
             // Função para calcular corretamente o elementoIndex e elementoIndexNodeList
             function calcularIndices(startContainer) {
                 let elementoPai = startContainer.parentElement;
-    
+
                 // Se o pai do nó for null ou um nó muito aninhado, suba na hierarquia
                 while (elementoPai && !elementos.includes(elementoPai)) {
                     elementoPai = elementoPai.parentElement;
                 }
-    
+
                 if (!elementoPai) {
                     console.error("Elemento pai não encontrado no contêiner.");
                     return { elementoIndex: -1, elementoIndexNodeList: -1 };
                 }
-    
+
                 const elementoIndex = elementos.indexOf(elementoPai);
-    
+
                 const elementosDoMesmoTipo = elementos.filter(el => el.nodeName.toLowerCase() === elementoPai.nodeName.toLowerCase());
                 const elementoIndexNodeList = elementosDoMesmoTipo.indexOf(elementoPai);
-    
+
                 return { elementoIndex, elementoIndexNodeList };
             }
-    
+
             // Se a seleção envolve apenas um nó
             if (startContainer === endContainer) {
                 const { elementoIndex, elementoIndexNodeList } = calcularIndices(startContainer);
@@ -168,9 +170,9 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                 startRange.setStart(startContainer, range.startOffset);
                 startRange.setEnd(startContainer, startContainer.length);
                 const { elementoIndex: startIndex, elementoIndexNodeList: elementoIndexNodeListStart } = calcularIndices(startContainer);
-    
+
                 highlightRange(startRange, startIndex, startContainer.parentElement.tagName, elementoIndexNodeListStart);
-    
+
                 // Se marcar múltiplos elementos for permitido
                 if (marcarMultiplosElementos) {
                     // Processar o último trecho da seleção
@@ -178,9 +180,9 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                     endRange.setStart(endContainer, 0);
                     endRange.setEnd(endContainer, range.endOffset);
                     const { elementoIndex: endIndex, elementoIndexNodeList: elementoIndexNodeListEnd } = calcularIndices(endContainer);
-    
+
                     highlightRange(endRange, endIndex, endContainer.parentElement.tagName, elementoIndexNodeListEnd);
-    
+
                     // Processar os nós intermediários entre o início e o fim da seleção
                     let currentNode = startContainer.parentElement.nextElementSibling;
                     while (currentNode && currentNode !== endContainer.parentElement) {
@@ -188,24 +190,24 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                             const middleRange = document.createRange();
                             middleRange.selectNodeContents(currentNode);
                             const middleIndex = elementos.indexOf(currentNode);
-    
+
                             const elementosDoMesmoTipoMiddle = elementos.filter(el => el.nodeName.toLowerCase() === currentNode.nodeName.toLowerCase());
                             const elementoIndexNodeListMiddle = elementosDoMesmoTipoMiddle.indexOf(currentNode);
-    
+
                             highlightRange(middleRange, middleIndex, currentNode.nodeName, elementoIndexNodeListMiddle);
                         }
                         currentNode = currentNode.nextElementSibling;
                     }
                 }
             }
-    
+
             // Limpar a seleção após o destaque
             selection.removeAllRanges();
         } else {
             alert("Nenhuma seleção foi feita!");
         }
     }
-    
+
 
     document.addEventListener('mouseup', async function (e) {
         const selection = window.getSelection();
@@ -332,8 +334,6 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
     // // Console para verificação
     // console.log(classParaApareceroToolbar);
 
-
-
     // Gerar IDs únicos para cada bloco com a classe 'editar' ou 'editarParagrafo'
     // document.querySelectorAll(`${classParaApareceroToolbar}`).forEach((element, index) => {
     //     // Obtém a lista de classes como um array
@@ -348,6 +348,7 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
     //     }
     // });
 
+
     document.querySelectorAll(`${classParaApareceroToolbar}`).forEach((element, index) => {
         // console.log(element)
         const idRefTools = element.getAttribute("procurar-toolbar-rfTools")
@@ -356,6 +357,10 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
 
     // Função para restaurar destaques salvos com LocalDB.js (incluindo cor do texto e cor de fundo)
     function restaurarDestaques() {
+        // Remover todos os marcadores existentes antes de restaurar
+        const marcadoresExistentes = document.querySelectorAll('marcador');
+        marcadoresExistentes.forEach(marcador => marcador.parentNode.replaceChild(document.createTextNode(marcador.textContent), marcador));
+
         // Acessar a coleção de destaques
         // Buscar todos os destaques na coleção
         databaseDestaques.find({}, function (results) {
@@ -384,7 +389,6 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
 
                 if (!container) return;
 
-
                 const elementos = container.querySelectorAll(primeiroDestaque.parentTag);
                 const elementosDoMesmoTipo = Array.from(elementos); // Converte NodeList para array
                 const elemento = elementosDoMesmoTipo[primeiroDestaque.elementoIndexNodeList]; // Usa o índice do NodeList
@@ -394,9 +398,8 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                     return;
                 }
 
-                let textoOriginal = elemento.textContent; // Usar textContent para preservar os espaços como caracteres
-                let novoConteudo = '';
-                let posicaoAtual = 0;
+                let nodeIterator = document.createNodeIterator(elemento, NodeFilter.SHOW_TEXT);
+                let currentNode;
 
                 // Processar todos os destaques neste elemento
                 destaques.forEach(function (destaque) {
@@ -404,10 +407,8 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
 
                     // Encontrar a palavra exata usando o Range API
                     let range = document.createRange();
-                    let nodeIterator = document.createNodeIterator(elemento, NodeFilter.SHOW_TEXT);
-
-                    let currentNode;
                     let encontrado = false;
+
                     while ((currentNode = nodeIterator.nextNode())) {
                         let textoDoNo = currentNode.textContent;
 
@@ -429,8 +430,11 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
                                 marcador.style.cssText += destaque.estiloTexto;
                             }
 
-                            range.deleteContents();
-                            range.insertNode(marcador);
+                            // Verificar se já existe um marcador no range selecionado
+                            if (currentNode.parentNode.nodeName.toLowerCase() !== 'marcador') {
+                                range.deleteContents();
+                                range.insertNode(marcador);
+                            }
                         }
                     }
                 });
@@ -441,14 +445,14 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
     // Restaurar destaques ao carregar a página
     restaurarDestaques();
 
+
     // Função para deletar todos os marcadores dentro da seleção
     function deletarMarcacao() {
         const selection = window.getSelection();
-        restaurarDestaques()
 
         // Verificação inicial para garantir que há uma seleção válida
         if (!selection || selection.rangeCount === 0) {
-            // console.log('Nenhuma seleção encontrada.');
+            console.log('Nenhuma seleção encontrada.');
             return;
         }
 
@@ -473,9 +477,7 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
 
         // Capturar todos os nós dentro do range de seleção
         const walker = document.createTreeWalker(commonAncestor, NodeFilter.SHOW_ELEMENT, {
-            acceptNode: (node) => {
-                return NodeFilter.FILTER_ACCEPT;
-            }
+            acceptNode: (node) => NodeFilter.FILTER_ACCEPT
         });
 
         const elementosSelecionados = [];
@@ -490,20 +492,23 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
 
         // Percorrer todos os elementos selecionados e remover os marcadores
         elementosSelecionados.forEach(elemento => {
-            const marcadores = elemento.querySelectorAll('[data-id]');
+            // Selecionar todos os marcadores, independentemente de terem ou não `data-id`
+            const marcadores = elemento.querySelectorAll('marcador');
             marcadores.forEach(marcador => {
                 if (range.intersectsNode(marcador)) {
                     const dataId = marcador.getAttribute('data-id');
-                    console.log(`Removendo marcador com data-id: ${dataId}`);
+                    console.log(`Removendo marcador com data-id: ${dataId || 'sem id'}`);
 
-                    // Criar um nó de texto com o conteúdo dentro do marcador
-                    const textoMarcador = document.createTextNode(marcador.textContent);
+                    // Substituir o marcador pelo seu conteúdo textual, ou seja, remover o elemento "marcador"
+                    while (marcador.firstChild) {
+                        marcador.parentNode.insertBefore(marcador.firstChild, marcador);
+                    }
+                    marcador.parentNode.removeChild(marcador); // Remove o marcador do DOM
 
-                    // Substituir o marcador pelo seu conteúdo textual
-                    marcador.parentNode.replaceChild(textoMarcador, marcador);
-
-                    // Remover o marcador da base de dados usando LocalDB.js
-                    removerMarcadorDoLocalDB(dataId);
+                    // Se o marcador tiver um `data-id`, também remover da base de dados
+                    if (dataId) {
+                        removerMarcadorDoLocalDB(dataId);
+                    }
                 }
             });
         });
@@ -515,13 +520,11 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
     // Função para remover o marcador da base de dados usando LocalDB.js
     function removerMarcadorDoLocalDB(dataId) {
         databaseDestaques.find({ id: dataId }, function (items) {
-
             // Verificar se existem itens correspondentes na base de dados
             if (Array.isArray(items) && items.length > 0) {
                 items.forEach((item) => {
                     item.delete(); // Remover o item da base de dados
                     console.log(`Marcador com id ${item.id} removido da base de dados.`);
-                    setTimeout(() => window.location.reload(), 0)
                 });
             } else {
                 console.log(`Nenhum marcador encontrado com o id ${dataId} na base de dados.`);
@@ -529,15 +532,17 @@ function toolbarRender(pagina = {}, sliderIndex = 0, documentoRenderizacao = [])
         });
     }
 
-    const limparToolbarRender =  document.querySelectorAll('#limpar');
-    // console.log(limparToolbarRender)
-    limparToolbarRender.forEach((btn,index) =>{
-        btn.addEventListener("click",function(){
-            // alert('oi')
+    // Atribuir o evento de clique ao botão "limpar"
+    const limparToolbarRender = document.querySelectorAll('#limpar');
+    limparToolbarRender.forEach((btn) => {
+        btn.addEventListener('click', function () {
+            // Executa a função de restauração (se houver)
             restaurarDestaques();
+
+            // Executa a função para deletar a marcação do texto selecionado
             deletarMarcacao();
-        })
-    })
+        });
+    });
 
     function obterTextoSelecionado() {
         const selection = window.getSelection();

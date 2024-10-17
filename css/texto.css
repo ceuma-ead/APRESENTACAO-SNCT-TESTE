@@ -94,8 +94,18 @@
 /* On screens that are 1200px wide or less, the background color is lightgray */
 @media screen and (min-width: 1520px) {
 
-    .pagina-tipo-texto--box-texto p {
-        font-size: calc(var(--font-para-paragrafos) + 2) !important;
+    .pagina-tipo-texto--box-texto  p {
+        font-size: calc(var(--font-para-paragrafos) + 2rem) !important;
+        /* background-color: red; */
+    }
+    .pagina-tipo-texto--box-texto  h1,h4,h3,h4,h5,h6 {
+        font-size: calc(var(--font-para-paragrafos) + 2rem) !important;
+        /* background-color: red; */
+    }
+
+    .pagina-tipo-texto--box-texto  ol,ul,li {
+        font-size: calc(var(--font-para-paragrafos) + 2rem) !important;
+        /* background-color: red; */
     }
 
     .olcards {
@@ -104,7 +114,7 @@
 
     .olcards li .content .text {
         text-align: left;
-        font-size: calc(var(--font-para-paragrafos) + 2) !important;
+        font-size: calc(var(--font-para-paragrafos) + 2rem) !important;
 
     }
 
@@ -113,7 +123,7 @@
     }
 
     .header-title p {
-        font-size: calc(var(--tamanho-de-font-para-paragrafo-sidebar) + 0.5rem) !important;
+        font-size: calc(var(--tamanho-de-font-para-paragrafo-sidebar) + 1rem) !important;
     }
 
     .accordion section ul {

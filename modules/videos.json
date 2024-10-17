@@ -10,16 +10,9 @@
     {
    
         "_ativo":true,
-        "dataThumbSrc":"https://i.vimeocdn.com/video/1859640298-d0a05919259325374bf680502f256829c9bc896c8f6b3c45e0f91c5b25585d3f-d_295x166?r=pad",
-        "srcVideo":"https://player.vimeo.com/video/950836922?h=95c52219be&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-        "attrFrame":"allow = [ autoplay ; fullscreen ; ] | class=[ iframe-video ]"
-    },
-    {
-   
-        "_ativo":true,
-        "dataThumbSrc":"https://i.vimeocdn.com/video/1859640298-d0a05919259325374bf680502f256829c9bc896c8f6b3c45e0f91c5b25585d3f-d_295x166?r=pad",
-        "srcVideo":"https://player.vimeo.com/video/950836922?h=95c52219be&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-        "attrFrame":"allow = [ autoplay ; fullscreen ; ] | class=[ iframe-video ]"
+        "dataThumbSrc":"https://i.vimeocdn.com/video/1922600909-bb67f928aae8beb18125aaec3ef3da65ea142b0aa75323d20a35066c58ff5fd4-d_295x166?r=pad",
+        "srcVideo":"https://player.vimeo.com/video/1005953294?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        "attrFrame":"allow = [ autoplay ; fullscreen ; ] | class=[ iframe-video ] "
     }
    
 ]

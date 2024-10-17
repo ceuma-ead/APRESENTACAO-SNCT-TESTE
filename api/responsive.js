@@ -7,8 +7,8 @@ const responsivo = [
         // Estilos que podem vir adicionais
         "synchronous" : `
         .pagina-tipo-texto--box-texto p{
-        /*margin-bottom: 0.3rem !important;*/
-        /* font-size: 0.8rem !important; */
+        margin-bottom: 0.3rem !important;
+        font-size: 0.8rem !important; 
         /* background-color: aqua;*/
         }
 
@@ -111,7 +111,7 @@ const responsivo = [
         }
 
         #image-capaOverlay {
-        /* max-width: 10% !important; */
+        max-width: 10% !important; 
         }
 
         .olcards li .content .text {

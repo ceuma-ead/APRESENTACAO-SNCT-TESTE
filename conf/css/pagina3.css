@@ -1,5 +1,4 @@
-
-
+@import url(../../css/variaveis.css);
 
 .objetivo-aprendizagem-elemento{
     width: 90%;
@@ -40,12 +39,11 @@
 }
 
 .list-group-aprendizagem{
-    font-size: 0.7rem;
+    font-size: var(--font-para-paragrafos);
     text-align: left;
 }
 
-/* Quando Estiver na Resolução 1042 * 389 */
-@import url(../css/variaveis.css);
+
 
 @media screen and (max-width: 1366px) {
 

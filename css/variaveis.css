@@ -135,7 +135,7 @@
 
     /* ---------------------------------------- */
     /* Controlador de Imagem Carrosel */
-    --imgem-fundo-carrosel: url(../assets/fundo.png);
+    --imgem-fundo-carrosel: url(../assets/fundo.gif);
     --imgem-fundo-carrosel-sub-capa: url(../assets/capaOverlay.png);
     --imgem-fundo-carrosel-sub-capa-default: url();
     --imgem-fundo-carrosel-posicao-y-imagem: center;

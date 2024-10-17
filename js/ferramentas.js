@@ -475,16 +475,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
                                             Swal.fire({
                                                 title: "<strong>Como usar o <u>Marca Texto</u></strong>",
                                                 icon: "info",
-                                                html: `
-                                                <div class="alert alert-info mt-3 p-3">
-                                                    <p class="mb-0">
-                                                        Você pode usar da seguinte maneira: <b class="text-success">Selecione um texto ou parágrafo</b>.
-                                                        <br>
-                                                        <a href="#" class="text-primary text-decoration-underline" autofocus>Se tiver alguma dúvida, consulte o tutorial disponível</a>.
-                                                    </p>
-                                                </div>
-                                            `,
-
+                                                text:`Você pode usar da seguinte maneira: Selecione um texto ou parágrafo.`,
                                                 showCloseButton: true,
                                                 showCancelButton: true,
                                                 focusConfirm: false,
