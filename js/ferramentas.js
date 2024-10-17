@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Iniciar Evento
-    eventButton("","",api);
+    eventButton("", "", api);
     exibirHistoricoResumos();
 });
 
@@ -63,7 +63,7 @@ function exibirHistoricoResumos() {
     historicoContainer.innerHTML = '';
 
     // Limpa o container antes de adicionar novos itens
-    
+
     // Busca todos os resumos salvos na coleção "historicoResumos"
     historicoResumos.find({}, function (resumos) {
         if (resumos.length === 0) {
@@ -349,52 +349,138 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
         });
     });
 
+    async function baixarPDF(arquivo = "") {
+
+        const uuidGerado = uuid();
+        const link = document.createElement('a');
+        link.href = arquivo;
+        link.download = arquivo.substring(arquivo.lastIndexOf('/') + 1) + '_' + uuidGerado; // Nome do arquivo extraído da URL
+        document.body.appendChild(link);
+
+        let timerInterval;
+        Swal.fire({
+            title: 'Buscando seu arquivo 🔎...',
+            html: `
+                <div>
+                    <p>Aguarde em <b></b> milissegundos.</p>
+                </div>
+            `,
+            timer: 2000,
+            heightAuto: false,
+            timerProgressBar: true,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector('b');
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                const idReduzido = reduzirTexto(uuidGerado, 10);
+                Swal.fire({
+                    icon: "info",
+                    title: `Sucesso`,
+                    html: `
+                        <div>
+                            <p>Você pode tentar isso 😉</p>
+                            <a href="#" class="baixarLink">Caso seu download não tenha iniciando automaticamente click aqui. ${uuidGerado}</a>
+                        </div>
+                    `,
+                    heightAuto: false,
+                    allowOutsideClick: false,
+
+                })
+                link.click();
+
+                document.querySelector(".baixarLink").addEventListener("click", function () {
+                    link.click();
+                    document.body.removeChild(link);  // Remover o link após o download
+                })
+
+
+            }
+        }).catch((error) => {
+            console.error('showAutoCloseAlert: Erro ao exibir alerta.', error);
+        });
+    }
+
+
+    async function pdfApi() {
+
+        try {
+            const data = await $.ajax({
+                url: "./modules/pdf.json",
+                method: "GET",
+                cache: false,
+            });
+
+            return data;
+
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: `Erro Json Desativada`,
+                heightAuto: false,
+                footer: `<a href="#" onclick="">você acha que isso é um erro? @suporte</a>`
+            });
+            console.error('Erro:', error);
+        }
+
+    }
+
+
     const download_pdf = document.querySelectorAll('.baixar-pdf');
     download_pdf.forEach((button, index) => {
-        button.addEventListener("click", function (event) {
+        button.addEventListener("click", async function (event) {
             event.stopPropagation();
-    
-            // var myModal = new bootstrap.Modal(document.getElementById('modal-pdf'), {
-            //     keyboard: true
-            // });
-            // myModal.show();
 
-            // Obter o valor do atributo 'pdf-data'
-            const pdfUrl = button.getAttribute('pdf-data');
-            // Criar um link de download dinamicamente
-            const link = document.createElement('a');
-            link.href = pdfUrl;
-            link.download = pdfUrl.substring(pdfUrl.lastIndexOf('/') + 1); // Nome do arquivo extraído da URL
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);  // Remover o link após o download
+            const apiRenderPDF = await pdfApi();
+
+            // Filtra os PDFs que são do tipo "pdf" e estão ativos
+            const configPDF = apiRenderPDF.filter(pdf => pdf.tipo === "pdf" && pdf.ativo);
+
+            // Verifica se o número de PDFs filtrados é maior que 1
+            if (configPDF.length > 1) {
+                console.log("Mais de um PDF encontrado. Apenas o primeiro será processado.");
+            }
+
+            // Processa apenas o primeiro PDF ou nenhum, caso não haja
+            configPDF.slice(0, 1).forEach(pdf => {
+                const arquivoPDF = pdf.arquivo;
+                baixarPDF(arquivoPDF);
+            });
 
         });
     });
 
-    
+
     const btn_podcast = document.querySelectorAll('.btn-podcast');
     btn_podcast.forEach((btn, index) => {
         btn.addEventListener("click", function (event) {
             event.stopPropagation();
             const paginas = PAGINA;
-    
+
             if (Array.isArray(paginas)) {
                 const paginaAudio = paginas.filter((obj) => obj.tipo === "Audio");
-    
+
                 if (paginaAudio.length !== 0) {
                     const audioPage = paginaAudio.map((obj) => ({
                         id: 0,
                         prop: obj
                     }));
-    
+
                     const objetoDestruido = Object.assign({}, ...audioPage);
-    
+
                     const {
                         id = 0,
                         prop = {}
                     } = objetoDestruido;
-    
+
                     if (id === 0) {
                         const idPage = prop.pagina;
                         glider.scrollItem(idPage - 1);
@@ -405,29 +491,29 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
             }
         });
     });
-    
+
     const btn_video = document.querySelectorAll('.btn-videoaula');
     btn_video.forEach((btn, index) => {
         btn.addEventListener("click", function (event) {
             event.stopPropagation();
             const paginas = PAGINA;
-    
+
             if (Array.isArray(paginas)) {
                 const paginaVideo = paginas.filter((obj) => obj.tipo === "Video");
-    
+
                 if (paginaVideo.length !== 0) {
                     const videoPage = paginaVideo.map((obj) => ({
                         id: 0,
                         prop: obj
                     }));
-    
+
                     const objetoDestruido = Object.assign({}, ...videoPage);
-    
+
                     const {
                         id = 0,
                         prop = {}
                     } = objetoDestruido;
-    
+
                     if (id === 0) {
                         const idPage = prop.pagina;
                         glider.scrollItem(idPage - 1);
@@ -438,7 +524,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
             }
         });
     });
-    
+
 
 
 
@@ -475,7 +561,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
                                             Swal.fire({
                                                 title: "<strong>Como usar o <u>Marca Texto</u></strong>",
                                                 icon: "info",
-                                                text:`Você pode usar da seguinte maneira: Selecione um texto ou parágrafo.`,
+                                                text: `Você pode usar da seguinte maneira: Selecione um texto ou parágrafo.`,
                                                 showCloseButton: true,
                                                 showCancelButton: true,
                                                 focusConfirm: false,
@@ -513,11 +599,11 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
     const btn_historico = document.querySelector("#history-icon");
     const containerFlip = document.querySelector("#flip-container");
     const nomeHeaderResumo = document.querySelector(".nome-header-resumo");
-    
+
     btn_historico.onclick = () => {
         // Alterna a classe 'flip-active' no container
         containerFlip.classList.toggle('flip-active');
-    
+
         // Verifica o estado do container e atualiza o título
         if (containerFlip.classList.contains('flip-active')) {
             nomeHeaderResumo.innerHTML = "Histórico"; // Muda para 'Histórico' quando flipado
@@ -525,7 +611,7 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
             nomeHeaderResumo.innerHTML = "Resumo"; // Muda para 'Resumo' quando não flipado
         }
     };
-    
+
 
 
     // document.getElementById('btn-menu-chat-ai').addEventListener('click', function (event) {
@@ -533,21 +619,21 @@ function eventButton(API = "", INDEX = "", PAGINA = {}) {
 
     //     // Alterna a classe 'open' para exibir/esconder o menu com animação
     //     menuInterno.classList.toggle('open');
-        
+
     //     // Impede que o clique no botão feche o menu
     //     event.stopPropagation();
     // });
-    
+
     // // Fecha o menu quando clicar fora dele
     // document.addEventListener('click', function (event) {
     //     const menuInterno = document.getElementById('menu-interno');
-        
+
     //     // Verifica se o menu está aberto e se o clique foi fora do menu
     //     if (!menuInterno.contains(event.target) && !event.target.matches('#btn-menu')) {
     //         menuInterno.classList.remove('open');
     //     }
     // });
-    
+
 
 
     // ======================================================= \\

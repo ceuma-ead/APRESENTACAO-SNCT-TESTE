@@ -1,153 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="SLDCEUMA (2.0) Version <BETA>">
-        <meta name="author" content="Ceuma">
-        <title>SLDCEUMA +2.0</title>
-        <script async>
-        
-            function workingLoadingPage() {
-                document.getElementById('loading-spinner').style.display = "flex";
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLDCEUMA (2.0) Version <BETA>">
+    <meta name="author" content="Ceuma">
+    <title>SLDCEUMA +2.0</title>
+    <script async>
 
-            if (document.readyState === "loading") {
-                // Loading hasn't finished yet
-                document.addEventListener("DOMContentLoaded", workingLoadingPage());
-            } else {
-                // `DOMContentLoaded` has already fired
-                orkingLoadingPage();
-            }
+        function workingLoadingPage() {
+            document.getElementById('loading-spinner').style.display = "flex";
+        }
 
-        </script>
-    
-        <!-- Estilos Globais de responsividade e Gerais -->
-        <link rel="stylesheet" type="text/css" href="./css/spinner.css">
-        <link rel="stylesheet" type="text/css" href="./global/style.css">
-        <script type="text/javascript" src="./global/global.js"></script>
-        <link rel="stylesheet" type="text/css"
-            href="./global/responsive.min.css">
-        <!-- Estilos Globais de responsividade e Gerais -->
+        if (document.readyState === "loading") {
+            // Loading hasn't finished yet
+            document.addEventListener("DOMContentLoaded", workingLoadingPage());
+        } else {
+            // `DOMContentLoaded` has already fired
+            workingLoadingPage();
+        }
 
-        <!-- Arquitetura Analisador De Erros -->
-        <script type="text/javascript" src="./js/error.js"></script>
-        <!-- Arquitetura Analisador De Erros -->
+    </script>
 
-        <!-- Alertar e Notificações -->
-        <script type="text/javascript"
-            src="./plugins/sweetalert2/sweetalert2.min.js"></script>
-        <!-- Alertar e Notificações -->
+    <!-- Estilos Globais de responsividade e Gerais -->
+    <link rel="stylesheet" type="text/css" href="./css/spinner.css">
+    <link rel="stylesheet" type="text/css" href="./global/style.css">
+    <script type="text/javascript" src="./global/global.js"></script>
+    <link rel="stylesheet" type="text/css" href="./global/responsive.min.css">
+    <!-- Estilos Globais de responsividade e Gerais -->
 
-        <!-- Estilo Carrosel Glider -->
-        <link rel="stylesheet" type="text/css"
-            href="./plugins/glider/glider.min.css">
-        <!-- Estilo Carrosel Glider -->
+    <!-- Arquitetura Analisador De Erros -->
+    <script type="text/javascript" src="./js/error.js"></script>
+    <!-- Arquitetura Analisador De Erros -->
 
-        <!-- Plugin de Renderização Glider -->
-        <script type="text/javascript"
-            src="./plugins/glider/glider.min.js"></script>
-        <!-- Plugin de Renderização Glider -->
+    <!-- Alertar e Notificações -->
+    <script type="text/javascript" src="./plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Alertar e Notificações -->
 
-        <!-- Plugin de Resolução Optica imagem -->
-        <link rel="stylesheet" href="./plugins/vizioonZoom/vizioon.min.css">
-        <link rel="stylesheet" href="./plugins/vizioonZoom/zoomist.css">
-        <!-- Plugin de Resolução Optica imagem -->
+    <!-- Estilo Carrosel Glider -->
+    <link rel="stylesheet" type="text/css" href="./plugins/glider/glider.min.css">
+    <!-- Estilo Carrosel Glider -->
 
-        <!-- Link para a fonte Lato do Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato"
-            rel="stylesheet">
-        <!-- Link para a fonte Lato do Google Fonts -->
+    <!-- Plugin de Renderização Glider -->
+    <script type="text/javascript" src="./plugins/glider/glider.min.js"></script>
+    <!-- Plugin de Renderização Glider -->
 
-        <!-- Animação Páginas -->
-        <link rel="stylesheet" href="./plugins/animated/animate.min.css" />
-        <!-- Animação Páginas -->
+    <!-- Plugin de Resolução Optica imagem -->
+    <link rel="stylesheet" href="./plugins/vizioonZoom/vizioon.min.css">
+    <link rel="stylesheet" href="./plugins/vizioonZoom/zoomist.css">
+    <!-- Plugin de Resolução Optica imagem -->
 
-        <!-- Icones de Todas as Páginas -->
-        <script type="text/javascript" src="./js/lucide.js"></script>
-        <link rel="stylesheet"
-            href="./plugins/bootstrapIcons/font/bootstrap-icons.css">
-        <link rel="stylesheet"
-            href="./plugins/bootstrapIcons/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" type="text/css"
-            href="./plugins/fontawesome/css/all.css">
-        <!-- Icones de Todas as Páginas -->
+    <!-- Link para a fonte Lato do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet">
+    <!-- Link para a fonte Lato do Google Fonts -->
 
-        <!-- Ajuste Carrosel Glider -->
-        <link rel="stylesheet" type="text/css" href="./css/carrosel.css">
-        <link rel="stylesheet" type="text/css" href="./css/siderbar.css">
-        <!-- Ajuste Carrosel Glider -->
+    <!-- Animação Páginas -->
+    <link rel="stylesheet" href="./plugins/animated/animate.min.css" />
+    <!-- Animação Páginas -->
 
-        <!-- Plugin de Tooltip -->
-        <script type="text/javascript"
-            src="./plugins/tippy/popperjs.min.js"></script>
-        <script src="./plugins/tippy/tippybundle.umd.js"></script>
-        <!-- Plugin de Tooltip -->
+    <!-- Icones de Todas as Páginas -->
+    <script type="text/javascript" src="./js/lucide.js"></script>
+    <link rel="stylesheet" href="./plugins/bootstrapIcons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./plugins/bootstrapIcons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="./plugins/fontawesome/css/all.css">
+    <!-- Icones de Todas as Páginas -->
 
-        <!-- Página tipo Video Fancy -->
-        <!-- <script type="text/javascript" src="./plugins/vizioonligthvideo/fancybox.umd.js"></script>
+    <!-- Ajuste Carrosel Glider -->
+    <link rel="stylesheet" type="text/css" href="./css/carrosel.css">
+    <link rel="stylesheet" type="text/css" href="./css/siderbar.css">
+    <!-- Ajuste Carrosel Glider -->
+
+    <!-- Plugin de Tooltip -->
+    <script type="text/javascript" src="./plugins/tippy/popperjs.min.js"></script>
+    <script src="./plugins/tippy/tippybundle.umd.js"></script>
+    <!-- Plugin de Tooltip -->
+
+    <!-- Página tipo Video Fancy -->
+    <!-- <script type="text/javascript" src="./plugins/vizioonligthvideo/fancybox.umd.js"></script>
         <link rel="stylesheet" href="./plugins/vizioonligthvideo/fancybox.min.css" /> -->
-        <link rel="stylesheet" type="text/css"
-            href="./plugins/vizioonligthvideo/fancyapps.min.css" />
-        <link rel="stylesheet" type="text/css"
-            href="./plugins/vizioonligthvideo/fancyappsthumbs.min.css" />
-        <!-- Página tipo Video Fancy -->
+    <link rel="stylesheet" type="text/css" href="./plugins/vizioonligthvideo/fancyapps.min.css" />
+    <link rel="stylesheet" type="text/css" href="./plugins/vizioonligthvideo/fancyappsthumbs.min.css" />
+    <!-- Página tipo Video Fancy -->
 
-        <!-- Bootstrap Css Todas as Páginas -->
-        <link rel="stylesheet" type="text/css"
-            href="./plugins/bootstrap/css/bootstrap.min.css">
-        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-            rel="stylesheet">
-        <script type="text/javascript"
-            src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Bootstrap Css Todas as Páginas -->
+    <!-- Bootstrap Css Todas as Páginas -->
+    <link rel="stylesheet" type="text/css" href="./plugins/bootstrap/css/bootstrap.min.css">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script type="text/javascript" src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Css Todas as Páginas -->
 
-        <!-- Banco de Dados LocalStorage-->
-        <script type="text/javascript" src="./db/src/LocalDB.js"></script>
-        <!-- Banco de Dados LocalStorage-->
+    <!-- Banco de Dados LocalStorage-->
+    <script type="text/javascript" src="./db/src/LocalDB.js"></script>
+    <!-- Banco de Dados LocalStorage-->
 
-        <!-- Estilo do Play do Podcast -->
-        <link rel="stylesheet" href="./plugins/plyr/plyr.min.css" />
-        <!-- Estilo do Play do Podcast -->
+    <!-- Estilo do Play do Podcast -->
+    <link rel="stylesheet" href="./plugins/plyr/plyr.min.css" />
+    <!-- Estilo do Play do Podcast -->
 
-        <!-- Core para o H5P -->
-        <link type="text/css" rel="stylesheet" media="all"
-            href="./plugins/h5p/core/styles/h5p.css" />
-        <script type="text/javascript"
-            src="./plugins/h5p/core/main.bundle.js"></script>
-        <!-- Core para o H5P -->
+    <!-- Core para o H5P -->
+    <link type="text/css" rel="stylesheet" media="all" href="./plugins/h5p/core/styles/h5p.css" />
+    <script type="text/javascript" src="./plugins/h5p/core/main.bundle.js"></script>
+    <!-- Core para o H5P -->
 
-    </head>
+</head>
 
-    <body>
-        <!-- Spinner Loadding -->
-        <div id="loading-spinner" style="display: none;">
-            <!-- Aqui você pode colocar um spinner ou qualquer animação de loading -->
-            <div class="spinner"></div>
-        </div>
+<body>
+    <!-- Spinner Loadding -->
+    <div id="loading-spinner" style="display: none;">
+        <!-- Aqui você pode colocar um spinner ou qualquer animação de loading -->
+        <div class="spinner"></div>
+    </div>
 
-        <!-- Spinner Loadding -->
-        <div class="w-100 h-100 d-flex flex-column item ">
-            <!-- Header de Navegação -->
-            <header class="siderbar">
-                <div class="siderbar-container">
-                    <!-- <img src="./assets/Logo.png" /> -->
-                    <button class="navbar-toggler d-block d-md-none"
-                        type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="text-light" data-lucide="menu"></i>
-                    </button>
+    <!-- Spinner Loadding -->
+    <div class="w-100 h-100 d-flex flex-column item ">
+        <!-- Header de Navegação -->
+        <header class="siderbar">
+            <div class="siderbar-container">
+                <!-- <img src="./assets/Logo.png" /> -->
+                <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="text-light" data-lucide="menu"></i>
+                </button>
 
-                    <!-- Menu Desktop -->
-                    <!-- Iniciando Menu Desktop  -->
-                    <div class="siderbar-container d-none d-md-block">
-                        <nav class="icons-action--container">
-                            <!-- <button vizioon-tip="Podcast"
+                <!-- Menu Desktop -->
+                <!-- Iniciando Menu Desktop  -->
+                <div class="siderbar-container d-none d-md-block">
+                    <nav class="icons-action--container">
+                        <!-- <button vizioon-tip="Podcast"
                                 vizioon-posicao="gbottom"><i
                                     data-lucide="audio-lines"></i></button>
                             <button vizioon-tip="Videoaula"
@@ -159,87 +141,86 @@
                             <button vizioon-tip="Tela cheia"
                                 vizioon-posicao="gbottom"><i
                                     data-lucide="maximize-2"></i></button> -->
-                        </nav>
-                    </div>
-                    <!-- Menu Desktop -->
-                    <!-- Dinalizando Menu Desktop  -->
+                    </nav>
                 </div>
+                <!-- Menu Desktop -->
+                <!-- Dinalizando Menu Desktop  -->
+            </div>
 
-                <div class="header-title">
-                    <p></p>
-                </div>
+            <div class="header-title">
+                <p></p>
+            </div>
 
-                <!-- Menu Navigation  -->
-                <!-- Iniciando Menu Navigation -->
-                <div class="siderbar-container-menu">
-                    <!-- <p class="d-none d-md-block">Sumário</p> -->
-                    <!-- <button vizioon-tip="Sumário"
+            <!-- Menu Navigation  -->
+            <!-- Iniciando Menu Navigation -->
+            <div class="siderbar-container-menu">
+                <!-- <p class="d-none d-md-block">Sumário</p> -->
+                <!-- <button vizioon-tip="Sumário"
                         vizioon-posicao="left" vizioon-attr="d-none d-md-block">
                         <i data-lucide="notebook-text"></i>
                     </button> -->
 
-                    <!-- Botão de Abrir Sumário -->
-                    <button id="btnOpenSumario">
+                <!-- Botão de Abrir Sumário -->
+                <button id="btnOpenSumario">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-notebook-text"><path
-                                d="M2 6h4" /><path d="M2 10h4" /><path
-                                d="M2 14h4" /><path d="M2 18h4" /><rect
-                                width="16" height="20" x="4" y="2"
-                                rx="2" /><path d="M9.5 8h5" /><path
-                                d="M9.5 12H16" /><path d="M9.5 16H14" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-notebook-text">
+                        <path d="M2 6h4" />
+                        <path d="M2 10h4" />
+                        <path d="M2 14h4" />
+                        <path d="M2 18h4" />
+                        <rect width="16" height="20" x="4" y="2" rx="2" />
+                        <path d="M9.5 8h5" />
+                        <path d="M9.5 12H16" />
+                        <path d="M9.5 16H14" />
+                    </svg>
 
-                    </button>
+                </button>
 
-                    <!-- Menu Sumario -->
-                    <div class="sidebar-menu">
-                        <div class="mola-encardernamento">
-
-                        </div>
-                        <header>
-                            <p>Hematologia Clínica</p>
-                            <hr class="hr-menu">
-                            <p>Unidade 01</p>
-                        </header>
-                        <!-- Caixa para Renderizar os Itemns -->
-                        <div class="render-menu">
-                            <a>
-                                <span>Dashboard</span>
-                                <span
-                                    class="horizontal-menu-activer active-menu"></span>
-                            </a>
-                        </div>
-                        <!-- Caixa para Pesquisar Unitaria -->
-                        <footer>
-                            <div class="searcListMateria">
-                                <input type="text" placeholder="Pesquisar">
-                                <span><i
-                                        data-lucide="square-arrow-out-up-right"></i></span>
-                            </div>
-                        </footer>
+                <!-- Menu Sumario -->
+                <div class="sidebar-menu">
+                    <div class="mola-encardernamento">
 
                     </div>
-                    <!-- Menu Sumario -->
+                    <header>
+                        <p>Hematologia Clínica</p>
+                        <hr class="hr-menu">
+                        <p>Unidade 01</p>
+                    </header>
+                    <!-- Caixa para Renderizar os Itemns -->
+                    <div class="render-menu">
+                        <a>
+                            <span>Dashboard</span>
+                            <span class="horizontal-menu-activer active-menu"></span>
+                        </a>
+                    </div>
+                    <!-- Caixa para Pesquisar Unitaria -->
+                    <footer>
+                        <div class="searcListMateria">
+                            <input type="text" placeholder="Pesquisar">
+                            <span><i data-lucide="square-arrow-out-up-right"></i></span>
+                        </div>
+                    </footer>
 
-                    <!-- Menu Anotação -->
-                    <div class="sidebar-menu-Annotation">
-                        <header>
-                            <p>Anotações</p>
-                            <!-- Butão de Mudar de Posição -->
-                            <button class="mudarPosicao">
-                                <i
-                                    data-lucide="arrow-left-right"></i>
-                            </button>
-                        </header>
-                        <hr class="hr">
-                        <!-- Caixa para Renderizar os Itemns da anotação -->
-                        <div class="render-menu-Annotation">
+                </div>
+                <!-- Menu Sumario -->
 
-                            <!-- componente do item da anotação -->
-                            <!-- <div class="content-box-anotation">
+                <!-- Menu Anotação -->
+                <div class="sidebar-menu-Annotation">
+                    <header>
+                        <p>Anotações</p>
+                        <!-- Butão de Mudar de Posição -->
+                        <button class="mudarPosicao">
+                            <i data-lucide="arrow-left-right"></i>
+                        </button>
+                    </header>
+                    <hr class="hr">
+                    <!-- Caixa para Renderizar os Itemns da anotação -->
+                    <div class="render-menu-Annotation">
+
+                        <!-- componente do item da anotação -->
+                        <!-- <div class="content-box-anotation">
                                     <div class="ribbon"
                                         contenteditable>Hematologia</div>
                                     <p>Lorem ipsum dolor sit amet consectetur
@@ -256,49 +237,42 @@
                                     </div>
                                 </div> -->
 
-                        </div>
-                        <!-- Caixa para Pesquisar Unitaria -->
-                        <footer class="container-searcListKeyWord">
-                            <div class="searcListKeyWord">
-                                <input type="search"
-                                    placeholder="#Palavras Chaves"
-                                    id="searchInput">
-                                <span
-                                    class="searchButton filterButton position-relative"
-                                    id="searchButton">
-                                    <i data-lucide="filter"
-                                        id="searcListKeyWord-icon"></i>
-
-                                    <span
-                                        class="countFoundResult d-none position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        0
-                                    </span>
-
-                                </span>
-                            </div>
-
-                            <button><i data-lucide="circle-plus"></i></button>
-
-                        </footer>
-
                     </div>
-                    <!-- Menu Anotação -->
+                    <!-- Caixa para Pesquisar Unitaria -->
+                    <footer class="container-searcListKeyWord">
+                        <div class="searcListKeyWord">
+                            <input type="search" placeholder="#Palavras Chaves" id="searchInput">
+                            <span class="searchButton filterButton position-relative" id="searchButton">
+                                <i data-lucide="filter" id="searcListKeyWord-icon"></i>
 
-                    <!-- Menu Dicionário -->
-                    <div class="dicionario-menu ">
-                        <header>
-                            <i
-                                class="text-light dicionario-adds close_dicionario"
-                                data-lucide="circle-x"></i>
-                            <p>Dicionário</p>
-                            <!-- <i class="text-light dicionario-adds"
+                                <span
+                                    class="countFoundResult d-none position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+
+                            </span>
+                        </div>
+
+                        <button><i data-lucide="circle-plus"></i></button>
+
+                    </footer>
+
+                </div>
+                <!-- Menu Anotação -->
+
+                <!-- Menu Dicionário -->
+                <div class="dicionario-menu ">
+                    <header>
+                        <i class="text-light dicionario-adds close_dicionario" data-lucide="circle-x"></i>
+                        <p>Dicionário</p>
+                        <!-- <i class="text-light dicionario-adds"
                                 data-lucide="history"></i> -->
-                        </header>
+                    </header>
 
-                        <!-- Caixa para Renderizar os Itens -->
-                        <div class="render-dicionario" id="result-dicionario">
-                            <!-- Resultados vão aparecer aqui -->
-                            <!-- <div class="render-dicionario-result">
+                    <!-- Caixa para Renderizar os Itens -->
+                    <div class="render-dicionario" id="result-dicionario">
+                        <!-- Resultados vão aparecer aqui -->
+                        <!-- <div class="render-dicionario-result">
                                 <span>Laboral</span>
                                 <p>
                                     Significado de Laboral
@@ -308,79 +282,66 @@
                                     Classe gramatical: adjetivo de dois gênerosSeparação silábica: la-bo-ralPlural: laborais
                                 </p>
                             </div> -->
-                        </div>
-
-                        <!-- Loader (escondido inicialmente) -->
-                        <div id="loading-dicionario"
-                            style="display: none;"></div>
-
-                        <!-- Caixa para Pesquisa -->
-                        <footer>
-                            <div class="searchDicionario">
-                                <input id="search-input" type="text"
-                                    placeholder="Buscar no dicionário...">
-                                <span class="buscarPalavra"
-                                    id="buscarPalavra"><i
-                                        data-lucide="send"></i></span>
-                            </div>
-                        </footer>
                     </div>
-                    <!-- Menu Dicionário -->
 
-                    <!-- Menu Resumo -->
-                    <div class="resumo-menu">
+                    <!-- Loader (escondido inicialmente) -->
+                    <div id="loading-dicionario" style="display: none;"></div>
 
-                        <header>
+                    <!-- Caixa para Pesquisa -->
+                    <footer>
+                        <div class="searchDicionario">
+                            <input id="search-input" type="text" placeholder="Buscar no dicionário...">
+                            <span class="buscarPalavra" id="buscarPalavra"><i data-lucide="send"></i></span>
+                        </div>
+                    </footer>
+                </div>
+                <!-- Menu Dicionário -->
 
-                            <i class="text-light resumo-adds close_resumo"
-                                data-lucide="circle-x"></i>
-                            <!-- <i class="text-light resumo-adds" id="btn-menu-chat-ai" style="margin-left: 0.5rem;" data-lucide="menu"></i> -->
-                            <p class="nome-header-resumo">Resumo</p>
-                            <i class="text-light resumo-adds" id="history-icon"
-                                data-lucide="history"></i>
+                <!-- Menu Resumo -->
+                <div class="resumo-menu">
 
-                        </header>
+                    <header>
 
-                        <!-- Contêiner de flip entre Resumo e Histórico -->
-                        <div class="flip-container" id="flip-container">
+                        <i class="text-light resumo-adds close_resumo" data-lucide="circle-x"></i>
+                        <!-- <i class="text-light resumo-adds" id="btn-menu-chat-ai" style="margin-left: 0.5rem;" data-lucide="menu"></i> -->
+                        <p class="nome-header-resumo">Resumo</p>
+                        <i class="text-light resumo-adds" id="history-icon" data-lucide="history"></i>
 
-                            <!-- Frente: Resumo -->
-                            <div class="flip-side front">
-                                <div class="content" id="result-resumo">
-                                    <div
-                                        class="mt-3 avatar-container d-flex justify-content-between align-items-center mb-3">
-                                        <div
-                                            class="d-flex gap-2 align-items-center">
-                                            <div class="position-relative">
-                                                <div
-                                                    class="pulse position-relative ai-response-loading "
-                                                    style="display:none;">
-                                                    <i></i>
-                                                    <i></i>
-                                                    <i></i>
-                                                    <i></i>
-                                                    <i></i>
-                                                </div>
-                                                <img
-                                                    class="rounded-circle avatar-img"
-                                                    style="width: 40px;"
-                                                    alt="Avatar" />
+                    </header>
+
+                    <!-- Contêiner de flip entre Resumo e Histórico -->
+                    <div class="flip-container" id="flip-container">
+
+                        <!-- Frente: Resumo -->
+                        <div class="flip-side front">
+                            <div class="content" id="result-resumo">
+                                <div
+                                    class="mt-3 avatar-container d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex gap-2 align-items-center">
+                                        <div class="position-relative">
+                                            <div class="pulse position-relative ai-response-loading "
+                                                style="display:none;">
+                                                <i></i>
+                                                <i></i>
+                                                <i></i>
+                                                <i></i>
+                                                <i></i>
                                             </div>
-                                            <span><strong id="text-typing-ai"
-                                                    class="text-success border border-2 border-success p-1 rounded nome-avatar"></strong></span>
+                                            <img class="rounded-circle avatar-img" style="width: 40px;" alt="Avatar" />
                                         </div>
-                                        <span class="d-none"><strong
-                                                class="data-generacao">00/00/000</strong></span>
-                                        <span class="reload-button-ai"></span>
-
+                                        <span><strong id="text-typing-ai"
+                                                class="text-success border border-2 border-success p-1 rounded nome-avatar"></strong></span>
                                     </div>
-                                    <div id="loading-resumo"
-                                        style="display: none;"></div>
-                                    <!-- Menu oculto que será mostrado dentro -->
+                                    <span class="d-none"><strong class="data-generacao">00/00/000</strong></span>
+                                    <span class="reload-button-ai"></span>
 
-                                    <!-- Menu oculto que será mostrado dentro -->
-                                    <div id="menu-interno" class="menu-interno">
-                                        <!-- <div class="menu-chats-openAI">
+                                </div>
+                                <div id="loading-resumo" style="display: none;"></div>
+                                <!-- Menu oculto que será mostrado dentro -->
+
+                                <!-- Menu oculto que será mostrado dentro -->
+                                <div id="menu-interno" class="menu-interno">
+                                    <!-- <div class="menu-chats-openAI">
                                             <ul class="list-unstyled">
                                                 <li><a href="#">Opção 1</a></li>
                                                 <li><a href="#">Opção 2</a></li>
@@ -388,25 +349,20 @@
                                             </ul>
                                         </div> -->
 
-                                        <ul
-                                            class="historico-conversa-menu-chat-ai">
-                                            <li><a href="#">Resumo...<i
-                                                        class="text-danger"
-                                                        data-lucide="trash-2"></i></a></li>
-                                            <li><a href="#">Resumo...<i
-                                                        class="text-danger"
-                                                        data-lucide="trash-2"></i></a></li>
-                                            <li><a href="#">Resumo... <i
-                                                        class="text-danger"
-                                                        data-lucide="trash-2"></i></a></li>
-                                        </ul>
+                                    <ul class="historico-conversa-menu-chat-ai">
+                                        <li><a href="#">Resumo...<i class="text-danger" data-lucide="trash-2"></i></a>
+                                        </li>
+                                        <li><a href="#">Resumo...<i class="text-danger" data-lucide="trash-2"></i></a>
+                                        </li>
+                                        <li><a href="#">Resumo... <i class="text-danger" data-lucide="trash-2"></i></a>
+                                        </li>
+                                    </ul>
 
-                                    </div>
+                                </div>
 
-                                    <div class="render-resumo-result"
-                                        id="render-resumo-result">
+                                <div class="render-resumo-result" id="render-resumo-result">
 
-                                        <!-- <div class="result-resumo-items">
+                                    <!-- <div class="result-resumo-items">
                                             
                                             <div class="mt-3 avatar-container d-flex justify-content-between align-items-center mb-3">
                                                 <div class="d-flex gap-2 align-items-center">
@@ -552,17 +508,15 @@
                                                 </span>
                                             </span>
                                         </div> -->
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Verso: Histórico -->
-                            <div class="flip-side back">
-                                <div class="content result-historico"
-                                    id="result-historico">
-                                    <div class="render-resumo-result-historico"
-                                        id="render-resumo-result-historico">
-                                        <!-- <div class="result-historico-items">
+                        <!-- Verso: Histórico -->
+                        <div class="flip-side back">
+                            <div class="content result-historico" id="result-historico">
+                                <div class="render-resumo-result-historico" id="render-resumo-result-historico">
+                                    <!-- <div class="result-historico-items">
                                             <span
                                                 class="title img-back-history d-flex flex-column border border-2 bg-dark text-dark p-2 rounded justify-content-center align-items-center">Guerra
                                                 Fria
@@ -613,129 +567,121 @@
                                                 mundo.
                                             </p>
                                         </div> -->
-                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
-                    <!-- Menu Resumo -->
 
                 </div>
-                <!-- Menu Navigation -->
-            </header>
-            <!-- Menu Mobile -->
+                <!-- Menu Resumo -->
 
-            <!-- Iniciando Menu Mobile -->
+            </div>
+            <!-- Menu Navigation -->
+        </header>
+        <!-- Menu Mobile -->
 
-            <div>
-                <nav
-                    class=" navbar navbar-expand-lg d-block d-md-none">
-                    <div
-                        class="collapse navbar-collapse icons-action--container-mobile "
-                        id="navbarNavDropdown">
-                        <!-- <button><i data-lucide="audio-lines"></i></button>
+        <!-- Iniciando Menu Mobile -->
+
+        <div>
+            <nav class=" navbar navbar-expand-lg d-block d-md-none">
+                <div class="collapse navbar-collapse icons-action--container-mobile " id="navbarNavDropdown">
+                    <!-- <button><i data-lucide="audio-lines"></i></button>
                         <button><i data-lucide="video"></i></button>
                         <button><i data-lucide="pencil-ruler"></i></button> -->
-                    </div>
-                </nav>
+                </div>
+            </nav>
 
-                <nav
-                    class="navbar position-relative navbar-box-tools-inline">
-                    <div class="box-tools-inline">
-                        <!-- <button><i data-lucide="file-text"></i>Resulmo</button>
+            <nav class="navbar position-relative navbar-box-tools-inline">
+                <div class="box-tools-inline">
+                    <!-- <button><i data-lucide="file-text"></i>Resulmo</button>
                         <button><i data-lucide="pencil"></i>Destacar</button>
                         <button><i data-lucide="sticky-note"></i>Notas</button>
                         <button><i data-lucide="ear"></i>Ouvinte</button>
                         <button><i data-lucide="download"></i>Download</button>
                         <button><i data-lucide="search"></i>Dicionario</button>
                         <button><i data-lucide="x" id="close_box"></i></button> -->
-                    </div>
-                </nav>
-
-                <div class="icon--annotation-action">
-                    <button class="openAnnotation"><i
-                            class='bi bi-sticky'></i></button>
                 </div>
+            </nav>
+
+            <div class="icon--annotation-action">
+                <button class="openAnnotation"><i class='bi bi-sticky'></i></button>
             </div>
-            <!-- Finalizando Menu Mobile -->
+        </div>
+        <!-- Finalizando Menu Mobile -->
 
-            <main class="carrosel--container">
-                <article class="c-carousel c-carousel--simple w-100 h-100">
+        <main class="carrosel--container">
+            <article class="c-carousel c-carousel--simple w-100 h-100">
 
-                    <div
-                        class="c-carousel__slides js-carousel--simple content-render-api h-100">
-                        <!-- <article class="c-carousel__slide">1</article>
+                <div class="c-carousel__slides js-carousel--simple content-render-api h-100">
+                    <!-- <article class="c-carousel__slide">1</article>
                         <article class="c-carousel__slide">2</article>
                         <article class="c-carousel__slide">3</article> -->
 
-                    </div>
-                    <button class="glider-prev"><i
-                            class="fas fa-chevron-left"></i></button>
-                    <button class="glider-next"><i
-                            class="fas fa-chevron-right"></i></button>
+                </div>
+                <button class="glider-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="glider-next"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="container-dots">
                     <div id="dots"></div>
-                </article>
-            </main>
+                </div>
 
-            <!-- Menu Mobile -->
-            <!-- Iniciando Menu Mobile -->
+            </article>
+        </main>
 
-            <div class="menu-options-footer">
-                <div class="wrapper">
-                    <input type="checkbox" />
-                    <div class="fab"></div>
-                    <div class="fac">
-                        <a href="#"><i data-lucide="bolt"></i></a>
-                    </div>
+        <!-- Menu Mobile -->
+        <!-- Iniciando Menu Mobile -->
+
+        <div class="menu-options-footer">
+            <div class="wrapper">
+                <input type="checkbox" />
+                <div class="fab"></div>
+                <div class="fac">
+                    <a href="#"><i data-lucide="bolt"></i></a>
                 </div>
             </div>
+        </div>
 
-            <!-- O Modal-Imagem -->
-            <div id="modal-imagem" class="modal-imagem">
-                <!-- Conteúdo do Modal - Imagem -->
-                <div class="modal-content-imagem">
-                    <span class="close-imagem">×</span>
-                    <div id="zoomist" class="zoomist-container">
-                        <div class="zoomist-wrapper">
-                            <div class="zoomist-image">
-                                <img class="imagem-zoomist img-opacity" />
-                            </div>
+        <!-- O Modal-Imagem -->
+        <div id="modal-imagem" class="modal-imagem">
+            <!-- Conteúdo do Modal - Imagem -->
+            <div class="modal-content-imagem">
+                <span class="close-imagem">×</span>
+                <div id="zoomist" class="zoomist-container">
+                    <div class="zoomist-wrapper">
+                        <div class="zoomist-image">
+                            <img class="imagem-zoomist img-opacity" />
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!--  Iniciando Marca do Ceuma -->
-            <div class="marca-da-agua">
+        <!--  Iniciando Marca do Ceuma -->
+        <div class="marca-da-agua">
 
-            </div>
-            <!--  Iniciando Marca do Ceuma -->
+        </div>
+        <!--  Iniciando Marca do Ceuma -->
 
-            <!-- Modal Ouvinte -->
-            <div class="modal fade " id="modal-ouvinte" tabindex="-1"
-                aria-labelledby="modal-ouvinte" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title"
-                                id="exampleModalLabel">Ouvinte</h5>
-                            <button type="button"
-                                class="btn-close btn-close-ouvinte"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body audio-convertido-ouvinte">
-                            <!-- Aqui vai aparecer o áudio -->
-                        </div>
+        <!-- Modal Ouvinte -->
+        <div class="modal fade " id="modal-ouvinte" tabindex="-1" aria-labelledby="modal-ouvinte" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ouvinte</h5>
+                        <button type="button" class="btn-close btn-close-ouvinte" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body audio-convertido-ouvinte">
+                        <!-- Aqui vai aparecer o áudio -->
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Modal Fullscreen -->
+        <!-- Modal Fullscreen -->
 
-            <!-- <div class="modal fade" id="modal-pdf" tabindex="-1" aria-labelledby="modal-pdf" aria-hidden="true">
+        <!-- <div class="modal fade" id="modal-pdf" tabindex="-1" aria-labelledby="modal-pdf" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -750,154 +696,146 @@
                 </div>
             </div> -->
 
-            <!-- Adicionando o Vlibras a Página -->
-            <div vw class="enabled">
-                <div vw-access-button class="active"></div>
-                <div vw-plugin-wrapper>
-                    <div class="vw-plugin-top-wrapper"></div>
-                </div>
+        <!-- Adicionando o Vlibras a Página -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
             </div>
-            <!-- Adicionando o Vlibras a Página -->
+        </div>
+        <!-- Adicionando o Vlibras a Página -->
 
-            <!-- Modal Tutorial -->
-            <div class="modal fade" id="modalTutorial" tabindex="-1"
-                aria-labelledby="modalTutorialLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5"
-                                id="modalTutorialLabel">Tutoriais
-                                Dispóniveis</h1>
-                            <button type="button" class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Close</button>
-                        </div>
+        <!-- Modal Tutorial -->
+        <div class="modal fade" id="modalTutorial" tabindex="-1" aria-labelledby="modalTutorialLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTutorialLabel">Tutoriais
+                            Dispóniveis</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <script type="text/javascript" src="./plugins/popper.min.js"></script>
-        <script type="text/javascript" src="./js/tooltip.js"></script>
-        <script type="text/javascript" src="./js/popover.js"></script>
+    </div>
 
-        <!-- AI Marked -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <!-- AI Marked -->
+    <script type="text/javascript" src="./plugins/popper.min.js"></script>
+    <script type="text/javascript" src="./js/tooltip.js"></script>
+    <script type="text/javascript" src="./js/popover.js"></script>
 
-        <!-- Modulo de Bipe -->
-        <script type="text/javascript"
-            src="./api/Components/Bipe.js"></script>
-        <!-- Modulo de Bipe -->
+    <!-- AI Marked -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- AI Marked -->
 
-        <!-- Arquivo Jquery -->
-        <script type="text/javascript"
-            src="./plugins/jquery/jquery.min.js"></script>
-        <!-- Arquivo Jquery -->
+    <!-- Modulo de Bipe -->
+    <script type="text/javascript" src="./api/Components/Bipe.js"></script>
+    <!-- Modulo de Bipe -->
 
-        <!-- Arquivo Icones Lucide -->
-        <script type="text/javascript"
-            src="./plugins/lucide/lucide.min.js"></script>
-        <!-- Arquivo Icones Lucide -->
+    <!-- Arquivo Jquery -->
+    <script type="text/javascript" src="./plugins/jquery/jquery.min.js"></script>
+    <!-- Arquivo Jquery -->
 
-        <!-- Arquivo de Toltip Js -->
-        <!-- <script type="text/javascript"
+    <!-- Modulo de UUID -->
+    <script type="text/javascript" src="./api/Components/Uuid.js"></script>
+    <!-- Modulo de UUID -->
+
+    <!-- Arquivo Icones Lucide -->
+    <script type="text/javascript" src="./plugins/lucide/lucide.min.js"></script>
+    <!-- Arquivo Icones Lucide -->
+
+    <!-- Arquivo de Toltip Js -->
+    <!-- <script type="text/javascript"
             src="./plugins/tooltip/vizioonTip.min.js"></script> -->
-        <!-- Arquivo de Toltip Js -->
+    <!-- Arquivo de Toltip Js -->
 
-        <!-- Arquivo de VizioonIst -->
-        <script src="./plugins/vizioonZoom/zoomist.umd.js"></script>
-        <!-- <script src="./plugins/vizioonZoom/vizioon.min.js"></script> -->
-        <!-- Arquivo de VizioonIst -->
+    <!-- Arquivo de VizioonIst -->
+    <script src="./plugins/vizioonZoom/zoomist.umd.js"></script>
+    <!-- <script src="./plugins/vizioonZoom/vizioon.min.js"></script> -->
+    <!-- Arquivo de VizioonIst -->
 
-        <!-- Script de Anotações -->
-        <script type="text/javascript" src="./js/annotation.js"></script>
-        <!-- Script de Anotações -->
+    <!-- Script de Anotações -->
+    <script type="text/javascript" src="./js/annotation.js"></script>
+    <!-- Script de Anotações -->
 
-        <!-- Arquivo de Components -->
-        <script type="text/javascript" src="./api/Components/Lupa.js"></script>
-        <!-- Arquivo de Components -->
+    <!-- Arquivo de Components -->
+    <script type="text/javascript" src="./api/Components/Lupa.js"></script>
+    <!-- Arquivo de Components -->
 
-        <!-- Arquivo da Api -->
-        <script type="text/javascript" src="./api/dados.js"></script>
-        <script type="text/javascript" src="./api/index.js"></script>
-        <!-- Arquivo da Api -->
+    <!-- Arquivo da Api -->
+    <script type="text/javascript" src="./api/dados.js"></script>
+    <script type="text/javascript" src="./api/index.js"></script>
+    <!-- Arquivo da Api -->
 
-        <!-- Script Dicionario -->
-        <script src="./modules/dicionario.js"></script>
-        <!-- Script Dicionario -->
+    <!-- Script Dicionario -->
+    <script src="./modules/dicionario.js"></script>
+    <!-- Script Dicionario -->
 
-        <!-- Descatados Temporariamente -->
-        <script type="text/javascript" src="./js/menus.js"></script>
-        <script type="text/javascript" src="./js/slider.js"></script>
-        <!-- Descatados Temporariamente -->
+    <!-- Descatados Temporariamente -->
+    <script type="text/javascript" src="./js/menus.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <!-- Descatados Temporariamente -->
 
-        <!-- Script para animação Textual -->
-        <script
-            src="./plugins/textify/gsap.min.js"></script>
-        <script src="./plugins/textify/Textify.min.js"></script>
-        <!-- Script para animação Textual -->
+    <!-- Script para animação Textual -->
+    <script src="./plugins/textify/gsap.min.js"></script>
+    <script src="./plugins/textify/Textify.min.js"></script>
+    <!-- Script para animação Textual -->
 
-        <!-- Script para adcionar Ferramentas na Página -->
-        <script src="./js/tools.js"></script>
-        <script src="./js/ferramentas.js"></script>
-        <!-- Script para adcionar Ferramentas na Página -->
+    <!-- Script para adcionar Ferramentas na Página -->
+    <script src="./js/tools.js"></script>
+    <script src="./js/ferramentas.js"></script>
+    <!-- Script para adcionar Ferramentas na Página -->
 
-        <!-- Script para adcionar Ferramentas de AI generativa na Página -->
-        <script src="./modules/ceumaAI.js"></script>
-        <!-- Script para adcionar Ferramentas de AI generativa na Página -->
+    <!-- Script para adcionar Ferramentas de AI generativa na Página -->
+    <script src="./modules/ceumaAI.js"></script>
+    <!-- Script para adcionar Ferramentas de AI generativa na Página -->
 
-        <!-- Script de Video para renderização -->
-        <script type="text/javascript" src="./js/video.js"></script>
-        <script type="text/javascript"
-            src="./plugins/vizioonligthvideo/fancyapps.umd.js"></script>
-        <script type="text/javascript"
-            src="./plugins/vizioonligthvideo/fancyapps.thumbs.umd.js"></script>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-        <!-- Script de Video para renderização -->
+    <!-- Script de Video para renderização -->
+    <script type="text/javascript" src="./js/video.js"></script>
+    <script type="text/javascript" src="./plugins/vizioonligthvideo/fancyapps.umd.js"></script>
+    <script type="text/javascript" src="./plugins/vizioonligthvideo/fancyapps.thumbs.umd.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <!-- Script de Video para renderização -->
 
-        <!-- Script de Audio para renderização -->
-        <script type="text/javascript"
-            src="./plugins/plyr/plyr.min.js"></script>
-        <script type="text/javascript" src="./js/audio.js"></script>
-        <!-- Script de Audio para renderização -->
+    <!-- Script de Audio para renderização -->
+    <script type="text/javascript" src="./plugins/plyr/plyr.min.js"></script>
+    <script type="text/javascript" src="./js/audio.js"></script>
+    <!-- Script de Audio para renderização -->
 
-        <!-- Script de Toolbar -->
-        <script type="text/javascript" src="./js/toolbar.js"></script>
-        <!-- Script de Toolbar -->
+    <!-- Script de Toolbar -->
+    <script type="text/javascript" src="./js/toolbar.js"></script>
+    <!-- Script de Toolbar -->
 
-        <!-- Criando Ponto de Intregação do Vlibras -->
-        <script src="./plugins/vlibras/vlibras.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="./css/vlibras.css">
-        <script>
-          new window.VLibras.Widget('https://vlibras.gov.br/app');
-        </script>
-        <!-- Criando Ponto de Intregação do Vlibras -->
+    <!-- Criando Ponto de Intregação do Vlibras -->
+    <script src="./plugins/vlibras/vlibras.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/vlibras.css">
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- Criando Ponto de Intregação do Vlibras -->
 
-        <!-- Script para modulo do H5P -->
-        <script type="text/javascript">
-            const {
-                H5P
-            } = H5PStandalone;
-            new H5P(document.getElementById('h5p-container'), {
-                h5pJsonPath: './plugins/h5p/h5p-folder/MultiChoice',
-                frameJs: './plugins/h5p/core/frame.bundle.js',
-                frameCss: './plugins/h5p/core/styles/h5p.css'
-            });
-        </script>
-        <!-- Script para modulo do H5P -->
+    <!-- Script para modulo do H5P -->
+    <script type="text/javascript">
+        const {
+            H5P
+        } = H5PStandalone;
+        new H5P(document.getElementById('h5p-container'), {
+            h5pJsonPath: './plugins/h5p/h5p-folder/MultiChoice',
+            frameJs: './plugins/h5p/core/frame.bundle.js',
+            frameCss: './plugins/h5p/core/styles/h5p.css'
+        });
+    </script>
+    <!-- Script para modulo do H5P -->
 
-        <!-- Arquitetura De Responsividade -->
-        <script type="text/javascript" src="./api/responsive.js"></script>
-        <!-- Arquitetura De Responsividade -->
+    <!-- Arquitetura De Responsividade -->
+    <script type="text/javascript" src="./api/responsive.js"></script>
+    <!-- Arquitetura De Responsividade -->
 
-    </body>
+</body>
 
 </html>

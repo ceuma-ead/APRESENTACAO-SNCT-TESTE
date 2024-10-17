@@ -4602,21 +4602,11 @@ const api = [
         "id_elemento_para_modificar": "container-texto",
         "data": {
             "container_render": `
-                        
                         <div class="pagina-tipo-texto animation">
                             <div class="pagina-tipo-texto--box-texto ouvinte-sound" >
                                <div class="container my-4">
                                     <div class="card mb-3" style="max-width: 100%;">
-                                        <div class="row g-0 flex align-item-center">
-                                         <!-- Conteúdo -->
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Calor seco</h5>
-                                                    <p class="card-text">O calor seco é um método de cocção onde os alimentos costumam desidratar, perdendo água. O quanto o alimento desidrata depende do tempo de cocção, tipo de calor empregado e do corte do mesmo. </p>
-                                                    <p class="card-text">Há dois tipos de cocção por calor seco, a saber: calor seco com gordura, onde o calor é transmitido de forma indireta por meio da gordura, sendo saltear, frigir e fritar, os meios utilizados; calor seco sem gordura, onde o calor é transferido de forma indireta e direta, podendo ser feito através do assamento em forno, no espeto e na grelha (SILVA, 2014). </p>
-                                                </div>
-                                            </div>
-
+                                        <div class="row g-0">
                                             <!-- Imagem -->
                                             <div class="col-md-4">
                                                 <div class="overflow-hidden h-100">
@@ -4624,21 +4614,28 @@ const api = [
                                                         <p class="description-descricao position-absolute top-0 start-0 w-100 text-center" style="margin:0;">
                                                             calor úmido
                                                         </p>
-                                                        <img src="${_prefixUnidade}calor_seco.png" class="card-img-container rounded-start animate-img"
-                                                            style="border:none;background: none;" alt="calor_seco.png">
+                                                       <img src="${_prefixUnidade}calor_seco.png" class="card-img-container rounded-start animate-img"
+                                                           style="border:none;background: none;" alt="calor_seco.pn">
                                                         <p class="description-font position-absolute bottom-0 start-0 w-100 text-center" style="margin:0;">
                                                             Fonte: Canva
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                           
+                                            <!-- Conteúdo -->
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Calor seco</h5>
+                                                    <p class="card-text">O calor seco é um método de cocção onde os alimentos costumam desidratar, perdendo água. O quanto o alimento desidrata depende do tempo de cocção, tipo de calor empregado e do corte do mesmo. </p>
+                                                    <p class="card-text">Há dois tipos de cocção por calor seco, a saber: calor seco com gordura, onde o calor é transmitido de forma indireta por meio da gordura, sendo saltear, frigir e fritar, os meios utilizados; calor seco sem gordura, onde o calor é transferido de forma indireta e direta, podendo ser feito através do assamento em forno, no espeto e na grelha (SILVA, 2014). </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
+                     
             `,
         },
         "forcarAtualizacao": {

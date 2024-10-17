@@ -94,16 +94,47 @@
     background-color: var(--cor-de-fundo-seta);
     color: var(--cor-das-setas);
 }
+.container-dots{
+    position: absolute;
+    width: 14.7rem;
+    overflow: hidden;
+    overflow-x: scroll;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    /* background-color: var(--fundo-carrosel); */
+    /* background-color: rgb(0, 68, 255); */
+    /* background: var(--fundo-carrosel); */
+    border: none;
+    color: rgb(27, 27, 27);
+    gap: 0.5rem;
+    cursor: pointer;
+    z-index: 1;
+    /* height: 4rem; */
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 100rem;
+}
+
+.container-dots::-webkit-scrollbar {
+    width: 8px;
+    min-height: min-content;
+    /* background-color: red; */
+    height: 100%;
+    overflow: auto;
+    display: none;
+    
+}
+
 
 #dots {
-    position: absolute;
-    width: 100%;
-    bottom: 1%;
-        transform: translateY(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--fundo-carrosel);
+    /* background-color: var(--fundo-carrosel); */
     /* background-color: rebeccapurple; */
     /* background: var(--fundo-carrosel); */
     border: none;
@@ -112,6 +143,7 @@
     cursor: pointer;
     z-index: 1;
     /* height: 4rem; */
+    
 
 }
 

@@ -111,21 +111,20 @@
 .glider-dots {
     user-select: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 0
+    /* flex-wrap: wrap; */
 }
 
 .glider-dot {
-    display: block;
+
+    display: flex;
     cursor: pointer;
     color: #ccc;
     border-radius: 999px;
     background: #ccc;
     width: 12px;
     height: 12px;
-    margin: 7px
+    /* margin: 7px; */
+    z-index: 999;
 }
 
 .glider-dot:focus,

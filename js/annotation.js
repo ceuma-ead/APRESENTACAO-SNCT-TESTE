@@ -418,7 +418,7 @@ async function removeAnnotation(id) {
             heightAuto: false,
         });
 
-        
+
 
 
         if (result.isConfirmed) {
@@ -448,9 +448,9 @@ async function removeAnnotation(id) {
                             abrirConfigurcoesBaseMenu();
                         }
                     })
-                    
-                    
-                    
+
+
+
                 } else {
                     console.log(`removeAnnotation: Anotação com ID ${id} não encontrada.`);
                 }
@@ -461,7 +461,7 @@ async function removeAnnotation(id) {
     } catch (error) {
         console.error('removeAnnotation: Erro ao remover anotação.', error);
     }
-   
+
 }
 
 // Função para baixar uma anotação como arquivo de texto (.txt)
@@ -686,7 +686,7 @@ if (title_rb) {
     const teclasPermitidas = [8, 46, 37, 38, 39, 40]; // Backspace, Delete e setas de navegação
 
     // Evento keydown para bloquear novas entradas
-    title_rb.addEventListener('keydown', function(event) {
+    title_rb.addEventListener('keydown', function (event) {
         const tamanhoDoTexto = title_rb.innerText.length; // Pega o tamanho do texto atualizado
 
         // Se o texto for igual ou maior que o limite, bloquear todas as teclas exceto backspace, delete e setas
@@ -696,7 +696,7 @@ if (title_rb) {
     });
 
     // Evento input para monitorar o texto em tempo real
-    title_rb.addEventListener('input', function(event) {
+    title_rb.addEventListener('input', function (event) {
         const tamanhoDoTexto = event.target.innerText.length; // Pega o tamanho do texto
 
         // Verifica o número de caracteres e alerta se o limite for atingido
